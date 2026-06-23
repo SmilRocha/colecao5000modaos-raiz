@@ -520,3 +520,7 @@ blockquote{
 .vinyl-play-icon-pause{display:none}
 .vinyl.is-playing .vinyl-play-icon-play{display:none}
 .vinyl.is-playing .vinyl-play-icon-pause{display:block}
+
+/* ---------- Heading highlight ---------- */
+.hl{color:#A96928}
+.sample-section .hl{color:#F0B96A}
