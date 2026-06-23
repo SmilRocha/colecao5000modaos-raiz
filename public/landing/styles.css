@@ -186,15 +186,15 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
   color:#fff;border:none;
   box-shadow:0 4px 10px rgba(0,0,0,.12);
 }
-.pills li:nth-child(9n+1){background:#A96928}            /* burnt amber */
-.pills li:nth-child(9n+2){background:#1F6F4A}            /* forest green */
-.pills li:nth-child(9n+3){background:#C0392B}            /* deep red */
-.pills li:nth-child(9n+4){background:#2C5F8D}            /* denim blue */
-.pills li:nth-child(9n+5){background:#7D3C98}            /* royal purple */
-.pills li:nth-child(9n+6){background:#E67E22}            /* tangerine */
-.pills li:nth-child(9n+7){background:#16847A}            /* teal */
-.pills li:nth-child(9n+8){background:#D4AC0D;color:#3B2A1E} /* mustard */
-.pills li:nth-child(9n)  {background:#5D4037}            /* coffee */
+.pills li:nth-child(9n+1){background:#A96928}                          /* burnt amber */
+.pills li:nth-child(9n+2){background:#F5D9B0;color:#5C2E0E}            /* cream */
+.pills li:nth-child(9n+3){background:#5D2E10}                          /* deep brown */
+.pills li:nth-child(9n+4){background:#E8B570;color:#3B2A1E}            /* sand */
+.pills li:nth-child(9n+5){background:#8A4E14}                          /* caramel */
+.pills li:nth-child(9n+6){background:#FBF1E4;color:#8A4E14;border:1px solid #ECD5B4;box-shadow:none} /* parchment */
+.pills li:nth-child(9n+7){background:#3B2A1E}                          /* espresso */
+.pills li:nth-child(9n+8){background:#D4A056;color:#3B2A1E}            /* honey */
+.pills li:nth-child(9n)  {background:#7A4310}                          /* mahogany */
 
 /* ---------- Bonus ---------- */
 .bonus{
