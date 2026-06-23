@@ -441,3 +441,52 @@ blockquote{
 .bonus>.tag{margin-left:20px}
 .bonus h3,.bonus p,.bonus .price{padding-left:20px;padding-right:20px}
 .bonus .price{padding-bottom:20px}
+
+/* ---------- Sample section (music app vibe) ---------- */
+.sample-section{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:linear-gradient(180deg,#2A1810 0%,#3B2A1E 60%,#2A1810 100%);
+  color:#FBF1E4;
+}
+.sample-bg{
+  position:absolute;inset:0;z-index:-2;
+  background-image:url('/__l5e/assets-v1/84ebe944-0dcb-4de2-a454-892e0babad37/artistas.png');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  filter:blur(6px) saturate(115%);
+  transform:scale(1.08);
+  opacity:.85;
+}
+.sample-overlay{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(176,101,28,.25), transparent 60%),
+    linear-gradient(180deg, rgba(43,24,16,.55) 0%, rgba(43,24,16,.45) 50%, rgba(43,24,16,.75) 100%);
+  backdrop-filter:blur(2px) saturate(120%);
+}
+.sample-inner{position:relative;text-align:center}
+.sample-eyebrow{
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:.78rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:#F5D9B0;
+  opacity:.85;
+  margin-bottom:10px;
+}
+.sample-section .player-title{
+  color:#FFFFFF;
+  text-shadow:0 2px 18px rgba(0,0,0,.45);
+  margin:0 0 28px;
+}
+.sample-caption{display:block;color:rgba(251,241,228,.78)}
+.sample-section .vinyl{
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08),
+    0 30px 60px -20px rgba(0,0,0,.6),
+    inset 0 0 0 6px rgba(255,255,255,.04);
+}
