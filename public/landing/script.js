@@ -48,7 +48,7 @@
   var audio = document.getElementById('sample-audio');
   if (audio) {
     audio.addEventListener('timeupdate', function () {
-      if (audio.currentTime >= 30) {
+      if (audio.currentTime >= 45) {
         audio.pause();
         audio.currentTime = 0;
       }

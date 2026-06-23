@@ -95,7 +95,7 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
   max-width:580px;margin:0 auto;overflow:hidden;
 }
 .player-cover{
-  width:100%;aspect-ratio:16/7;object-fit:cover;display:block;
+  width:100%;height:auto;display:block;
   border-bottom:1px solid var(--border);
 }
 .player-title{color:var(--heading);margin:24px 0 16px;padding:0 24px}
