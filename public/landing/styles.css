@@ -390,3 +390,9 @@ blockquote{
 @media (prefers-reduced-motion:reduce){
   .btn-baixaki{animation:none}
 }
+
+.bonus{overflow:hidden;padding:0}
+.bonus-img{width:100%;height:auto;display:block;border-radius:var(--radius) var(--radius) 0 0;margin-bottom:14px}
+.bonus>.tag{margin-left:20px}
+.bonus h3,.bonus p,.bonus .price{padding-left:20px;padding-right:20px}
+.bonus .price{padding-bottom:20px}
