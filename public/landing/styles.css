@@ -500,3 +500,24 @@ blockquote{
     0 30px 60px -20px rgba(0,0,0,.6),
     inset 0 0 0 6px rgba(255,255,255,.04);
 }
+
+/* ---------- Vinyl play button ---------- */
+.vinyl{position:relative}
+.vinyl-play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:3;
+  width:72px;height:72px;border-radius:50%;
+  border:none;cursor:pointer;
+  background:rgba(255,255,255,.95);
+  color:var(--accent-dark);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.08);
+  transition:transform .15s ease, background .15s ease;
+}
+.vinyl-play:hover{transform:translate(-50%,-50%) scale(1.06);background:#fff}
+.vinyl-play:focus-visible{outline:3px solid #F5D9B0;outline-offset:3px}
+.vinyl-play-icon{width:30px;height:30px}
+.vinyl-play-icon-play{margin-left:4px}
+.vinyl-play-icon-pause{display:none}
+.vinyl.is-playing .vinyl-play-icon-play{display:none}
+.vinyl.is-playing .vinyl-play-icon-pause{display:block}
