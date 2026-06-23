@@ -180,12 +180,15 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
 }
 
 /* ---------- Pills ---------- */
-.pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;list-style:none}
+.pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;list-style:none;margin-top:36px}
 .pills li{
-  background:#fff;color:var(--ink);
-  border:1px solid var(--border);
-  padding:10px 18px;border-radius:999px;font-size:1rem;
+  background:#FBF1E4;color:var(--accent-dark);
+  border:1px solid #ECD5B4;
+  padding:10px 18px;border-radius:999px;font-size:1rem;font-weight:600;
 }
+.pills li:nth-child(3n+1){background:#F5E1C8;color:#8A4E14;border-color:#E8C99F}
+.pills li:nth-child(3n+2){background:#FCEAD3;color:#A96928;border-color:#F0D2A6}
+.pills li:nth-child(3n)  {background:#F7D9B0;color:#7A4310;border-color:#E5BC85}
 
 /* ---------- Bonus ---------- */
 .bonus{
