@@ -101,55 +101,14 @@ h3{font-size:1.15rem;color:var(--ink-strong);font-weight:700}
 .hero-mockup{max-width:480px;width:100%;height:auto;margin:8px auto 28px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6))}
 
 /* ---------- Player ---------- */
-.player-title{color:var(--heading);text-align:center;margin:0 0 28px}
-
-/* ---------- Vinyl ---------- */
-.vinyl-card{max-width:560px;margin:0 auto;text-align:center}
-.vinyl{
-  position:relative;width:min(420px,82vw);aspect-ratio:1/1;margin:0 auto;
-  border-radius:50%;
-  background:
-    radial-gradient(circle at 50% 50%, #1a1a1a 0 30%, transparent 30.5%),
-    repeating-radial-gradient(circle at 50% 50%,
-      #0a0a0a 0 2px, #1f1f1f 2px 3px, #0a0a0a 3px 5px),
-    #0a0a0a;
-  box-shadow:
-    0 30px 60px -20px rgba(0,0,0,.55),
-    0 8px 20px rgba(0,0,0,.35),
-    inset 0 0 0 1px rgba(255,255,255,.04);
-  animation:vinyl-spin 6s linear infinite;
-  animation-play-state:paused;
+.player-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:32px 24px;text-align:center;
+  max-width:580px;margin:0 auto;
 }
-.vinyl.is-playing{animation-play-state:running}
-.vinyl-disc{position:absolute;inset:0;border-radius:50%}
-.vinyl-label{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:42%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;
-  background:var(--accent);
-  box-shadow:
-    0 0 0 2px rgba(0,0,0,.55),
-    inset 0 0 0 1px rgba(255,255,255,.15);
-}
-.vinyl-label img{width:100%;height:100%;object-fit:cover;display:block}
-.vinyl-hole{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:9%;aspect-ratio:1/1;border-radius:50%;
-  background:#0a0a0a;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 0 0 2px rgba(0,0,0,.4);
-}
-.vinyl-shine{
-  position:absolute;inset:0;border-radius:50%;pointer-events:none;
-  background:
-    radial-gradient(ellipse at 30% 25%, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 35%),
-    radial-gradient(ellipse at 70% 80%, rgba(255,255,255,.06) 0%, rgba(255,255,255,0) 30%);
-}
-@keyframes vinyl-spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.vinyl{animation:none}}
-
-.vinyl-controls{margin-top:28px}
-.vinyl-controls audio{display:block;margin:0 auto 12px;width:min(360px,100%);height:40px}
-.vinyl-controls small{display:block;color:var(--muted)}
-
+.player-title{color:var(--heading);margin-bottom:20px}
 
 /* ---------- Grids ---------- */
 .grid{display:grid;gap:20px}
@@ -455,9 +414,8 @@ blockquote{
 }
 .sample-section .vinyl{
   box-shadow:
+    0 0 0 1px rgba(255,255,255,.08),
     0 30px 60px -20px rgba(0,0,0,.8),
-    0 8px 20px rgba(0,0,0,.35),
-    inset 0 0 0 1px rgba(255,255,255,.08),
     inset 0 0 0 6px rgba(255,255,255,.04);
 }
 
