@@ -181,11 +181,11 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
 
 /* ---------- Artists section (music-app vibe) ---------- */
 .artists-section{
-  background:linear-gradient(180deg,#1a120b 0%,#2a1a10 100%);
+  background:linear-gradient(180deg,#3a2618 0%,#4a3220 100%);
   color:#F5E9D8;
 }
 .artists-section .section-title{color:#FFF6E6}
-.artists-section .section-title .hl{color:#E8B570}
+.artists-section .section-title .hl{color:#F2C988}
 
 /* ---------- Pills ---------- */
 .pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;list-style:none;margin-top:36px}
