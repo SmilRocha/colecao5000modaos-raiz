@@ -545,11 +545,11 @@ blockquote{
 
 /* ---------- Guarantee seal image ---------- */
 .guarantee-seal{
-  width:180px;height:auto;display:block;margin:0 auto 22px;
+  width:280px;height:auto;display:block;margin:0 auto 22px;
   filter:drop-shadow(0 6px 14px rgba(0,0,0,.18));
 }
 @media (max-width:480px){
-  .guarantee-seal{width:150px}
+  .guarantee-seal{width:220px}
 }
 
 /* ---------- Price highlight ---------- */
