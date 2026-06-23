@@ -25,7 +25,7 @@ body{
 img{max-width:100%;display:block}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-h1,h2,h3{font-family:'Merriweather','Lora',Georgia,serif;font-weight:700;line-height:1.25;color:var(--heading)}
+h1,h2,h3{font-family:'Merriweather','Lora',Georgia,serif;font-weight:900;line-height:1.15;letter-spacing:-.01em;color:var(--heading)}
 h1{font-size:clamp(2rem,4.5vw + .5rem,3rem);letter-spacing:-.01em}
 h2{font-size:clamp(1.6rem,2.2vw + .6rem,2.2rem)}
 h3{font-size:1.15rem;color:var(--ink-strong)}
