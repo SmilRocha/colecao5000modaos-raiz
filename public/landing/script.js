@@ -43,4 +43,15 @@
       }
     });
   });
+
+  // --- Limit audio sample to 30 seconds ---
+  var audio = document.getElementById('sample-audio');
+  if (audio) {
+    audio.addEventListener('timeupdate', function () {
+      if (audio.currentTime >= 30) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+  }
 })();

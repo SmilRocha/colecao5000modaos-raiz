@@ -8,8 +8,8 @@
   --ink-strong:#222222;
   --heading:#3B2A1E;
   --muted:#6B6258;
-  --accent:#B0651C;
-  --accent-dark:#8A4E14;
+  --accent:#412613;
+  --accent-dark:#2A180C;
   --radius:8px;
   --max:1080px;
 }
@@ -91,10 +91,15 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:var(--radius);
-  padding:32px 24px;text-align:center;
-  max-width:580px;margin:0 auto;
+  padding:0 0 24px;text-align:center;
+  max-width:580px;margin:0 auto;overflow:hidden;
 }
-.player-title{color:var(--heading);margin-bottom:20px}
+.player-cover{
+  width:100%;aspect-ratio:16/7;object-fit:cover;display:block;
+  border-bottom:1px solid var(--border);
+}
+.player-title{color:var(--heading);margin:24px 0 16px;padding:0 24px}
+.player-card .waveform,.player-card audio,.player-card small{margin-left:24px;margin-right:24px;width:calc(100% - 48px)}
 .waveform{display:flex;justify-content:center;align-items:flex-end;gap:4px;height:64px;margin-bottom:16px}
 .waveform span{
   width:4px;background:var(--accent);border-radius:2px;
