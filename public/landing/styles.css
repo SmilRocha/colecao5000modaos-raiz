@@ -99,7 +99,8 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
   border-bottom:1px solid var(--border);
 }
 .player-title{color:var(--heading);margin:24px 0 16px;padding:0 24px}
-.player-card .waveform,.player-card audio,.player-card small{margin-left:24px;margin-right:24px;width:calc(100% - 48px)}
+.player-card .waveform,.player-card small{margin-left:24px;margin-right:24px;width:calc(100% - 48px)}
+.player-card audio{display:block;margin:0 auto;width:min(320px,calc(100% - 48px));height:40px}
 .waveform{display:flex;justify-content:center;align-items:flex-end;gap:4px;height:64px;margin-bottom:16px}
 .waveform span{
   width:4px;background:var(--accent);border-radius:2px;
