@@ -542,3 +542,6 @@ blockquote{
 @media (max-width:480px){
   .guarantee-seal{width:150px}
 }
+
+/* ---------- Price highlight ---------- */
+.price-green{color:#1F6F4A !important}
