@@ -524,3 +524,12 @@ blockquote{
 /* ---------- Heading highlight ---------- */
 .hl{color:#A96928}
 .sample-section .hl{color:#F0B96A}
+
+/* ---------- Guarantee seal image ---------- */
+.guarantee-seal{
+  width:180px;height:auto;display:block;margin:0 auto 22px;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.18));
+}
+@media (max-width:480px){
+  .guarantee-seal{width:150px}
+}
