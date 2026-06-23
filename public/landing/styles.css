@@ -483,7 +483,17 @@ blockquote{
   text-shadow:0 2px 18px rgba(0,0,0,.45);
   margin:0 0 28px;
 }
-.sample-caption{display:block;color:rgba(251,241,228,.78)}
+.sample-caption{
+  display:block;
+  font-family:'Inter',sans-serif;
+  font-weight:600;
+  font-size:.78rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:#F5D9B0;
+  opacity:.85;
+  margin-top:14px;
+}
 .sample-section .vinyl{
   box-shadow:
     0 0 0 1px rgba(255,255,255,.08),
