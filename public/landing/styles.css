@@ -455,8 +455,9 @@ blockquote{
 }
 .sample-section .vinyl{
   box-shadow:
-    0 0 0 1px rgba(255,255,255,.08),
     0 30px 60px -20px rgba(0,0,0,.8),
+    0 8px 20px rgba(0,0,0,.35),
+    inset 0 0 0 1px rgba(255,255,255,.08),
     inset 0 0 0 6px rgba(255,255,255,.04);
 }
 
