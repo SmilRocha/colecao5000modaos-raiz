@@ -89,25 +89,24 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
 
 /* ---------- Player ---------- */
 .player-card{
-  position:relative;isolation:isolate;
-  background:url('sertao.jpg') center/cover no-repeat;
+  background:var(--surface);
   border:1px solid var(--border);
   border-radius:var(--radius);
-  padding:36px 28px;text-align:center;
+  padding:0 0 24px;text-align:center;
   max-width:580px;margin:0 auto;overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.18);
 }
-.player-card::before{
-  content:"";position:absolute;inset:0;z-index:-1;
-  background:rgba(255,255,255,.30);
-  backdrop-filter:blur(18px) saturate(140%);
-  border-radius:inherit;
+.player-media{position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.player-cover{width:100%;height:auto;display:block}
+.player-media .waveform{
+  position:absolute;left:0;right:0;bottom:0;
+  height:38%;margin:0;padding:0 16px 14px;
+  display:flex;justify-content:center;align-items:flex-end;gap:4px;
+  background:linear-gradient(to top,rgba(0,0,0,.45),rgba(0,0,0,0));
 }
-.player-cover{display:none}
-.player-title{color:var(--heading);margin:0 0 16px;text-shadow:0 1px 2px rgba(255,255,255,.5)}
-.player-card .waveform,.player-card small{margin-left:auto;margin-right:auto}
-.player-card small{display:block;margin-top:8px;color:var(--ink-strong)}
-.player-card audio{display:block;margin:0 auto;width:min(320px,100%);height:40px}
+.player-media .waveform span{background:#fff;opacity:.95;box-shadow:0 0 6px rgba(255,255,255,.5)}
+.player-title{color:var(--heading);margin:24px 0 16px;padding:0 24px}
+.player-card small{margin-left:24px;margin-right:24px;width:calc(100% - 48px);display:inline-block}
+.player-card audio{display:block;margin:0 auto;width:min(320px,calc(100% - 48px));height:40px}
 .waveform{display:flex;justify-content:center;align-items:flex-end;gap:4px;height:64px;margin-bottom:16px}
 .waveform span{
   width:4px;background:var(--accent);border-radius:2px;
