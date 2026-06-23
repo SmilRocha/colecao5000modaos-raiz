@@ -485,14 +485,13 @@ blockquote{
 }
 .sample-caption{
   display:block;
-  font-family:'Inter',sans-serif;
-  font-weight:600;
-  font-size:.78rem;
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  color:#F5D9B0;
-  opacity:.85;
-  margin-top:14px;
+  font-family:'Merriweather','Lora',Georgia,serif;
+  font-weight:700;
+  font-size:1rem;
+  letter-spacing:-.01em;
+  color:#FFFFFF;
+  text-shadow:0 2px 12px rgba(0,0,0,.45);
+  margin-top:16px;
 }
 .sample-section .vinyl{
   box-shadow:
