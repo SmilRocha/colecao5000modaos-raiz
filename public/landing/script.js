@@ -59,5 +59,11 @@
       audio.addEventListener('pause', function () { vinyl.classList.remove('is-playing'); });
       audio.addEventListener('ended', function () { vinyl.classList.remove('is-playing'); });
     }
+    var playBtn = document.getElementById('vinyl-play');
+    if (playBtn) {
+      playBtn.addEventListener('click', function () {
+        if (audio.paused) { audio.play(); } else { audio.pause(); }
+      });
+    }
   }
 })();
