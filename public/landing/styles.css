@@ -104,7 +104,7 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
   background:linear-gradient(to top,rgba(0,0,0,.45),rgba(0,0,0,0));
 }
 .player-media .waveform span{background:#fff;opacity:.95;box-shadow:0 0 6px rgba(255,255,255,.5)}
-.player-title{color:var(--heading);margin:24px 0 16px;padding:0 24px}
+.player-title{color:var(--heading);text-align:center;margin:0 0 20px}
 .player-card small{margin-left:24px;margin-right:24px;width:calc(100% - 48px);display:inline-block}
 .player-card audio{display:block;margin:0 auto;width:min(320px,calc(100% - 48px));height:40px}
 .waveform{display:flex;justify-content:center;align-items:flex-end;gap:4px;height:64px;margin-bottom:16px}
