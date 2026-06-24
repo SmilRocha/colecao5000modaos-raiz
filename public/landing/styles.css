@@ -554,3 +554,12 @@ blockquote{
 
 /* ---------- Price highlight ---------- */
 .price-green{color:#1F6F4A !important}
+
+/* ---------- Playlist title ---------- */
+.playlist-title{
+  font-family:'Bebas Neue','Impact',sans-serif;
+  font-weight:400;
+  letter-spacing:.06em;
+  font-size:clamp(2.2rem,4vw + .8rem,3.6rem);
+  line-height:1.05;
+}
