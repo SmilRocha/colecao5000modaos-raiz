@@ -43,4 +43,27 @@
       }
     });
   });
+
+  // --- Audio sample: limit to 45s + spin vinyl while playing ---
+  var audio = document.getElementById('sample-audio');
+  var vinyl = document.getElementById('vinyl');
+  if (audio) {
+    audio.addEventListener('timeupdate', function () {
+      if (audio.currentTime >= 45) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+    if (vinyl) {
+      audio.addEventListener('play',  function () { vinyl.classList.add('is-playing'); });
+      audio.addEventListener('pause', function () { vinyl.classList.remove('is-playing'); });
+      audio.addEventListener('ended', function () { vinyl.classList.remove('is-playing'); });
+    }
+    var playBtn = document.getElementById('vinyl-play');
+    if (playBtn) {
+      playBtn.addEventListener('click', function () {
+        if (audio.paused) { audio.play(); } else { audio.pause(); }
+      });
+    }
+  }
 })();
