@@ -470,7 +470,7 @@ blockquote{
 }
 .sample-bg{
   position:absolute;inset:0;z-index:-2;
-  background-image:url('/__l5e/assets-v1/84ebe944-0dcb-4de2-a454-892e0babad37/artistas.png');
+  background-image:url('artistas.png');
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
