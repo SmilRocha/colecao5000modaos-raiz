@@ -279,5 +279,42 @@
 </footer>
 
 <script src="script.js" defer></script>
+<script>
+(function() {
+  var cta = document.getElementById('cta-comprar');
+  if (!cta) return;
+
+  document.addEventListener('click', function(e) {
+    var el = e.target;
+    while (el && el !== cta && el !== document.body) {
+      el = el.parentElement;
+    }
+    if (el !== cta) return;
+
+    var url = cta.getAttribute('href');
+    if (!url) return;
+
+    var navigated = false;
+
+    var onBlur = function() { navigated = true; };
+    var onVisibility = function() { if (document.hidden) navigated = true; };
+    var onBeforeUnload = function() { navigated = true; };
+
+    window.addEventListener('blur', onBlur, { once: true });
+    document.addEventListener('visibilitychange', onVisibility, { once: true });
+    window.addEventListener('beforeunload', onBeforeUnload, { once: true });
+
+    window.setTimeout(function() {
+      window.removeEventListener('blur', onBlur);
+      document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('beforeunload', onBeforeUnload);
+
+      if (!navigated) {
+        window.open(url, '_blank', 'noopener');
+      }
+    }, 300);
+  }, true);
+})();
+</script>
 </body>
 </html>
