@@ -1,23 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Coleção Modão Sertanejo Raiz" },
-      { name: "description", content: "+5.000 modões de sertanejo raiz por R$10. Acesso vitalício." },
-      { property: "og:title", content: "Coleção Modão Sertanejo Raiz" },
-      { property: "og:description", content: "+5.000 modões de sertanejo raiz por R$10. Acesso vitalício." },
+      { title: "Redirecionando…" },
+      { name: "robots", content: "noindex" },
+      { httpEquiv: "refresh", content: "0; url=/modao" },
     ],
+    links: [{ rel: "canonical", href: "/modao" }],
   }),
-  component: Index,
+  component: RootRedirect,
 });
 
-function Index() {
+function RootRedirect() {
+  useEffect(() => {
+    window.location.replace("/modao" + window.location.search + window.location.hash);
+  }, []);
+
   return (
-    <iframe
-      src="/landing/index.html"
-      title="Landing — Coleção Modão Sertanejo Raiz"
-      style={{ width: "100vw", height: "100vh", border: "none", display: "block" }}
-    />
+    <p style={{ fontFamily: "system-ui, sans-serif", padding: 24 }}>
+      Redirecionando para <a href="/modao">/modao</a>…
+    </p>
   );
 }
