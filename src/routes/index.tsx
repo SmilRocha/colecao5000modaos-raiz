@@ -4,7 +4,7 @@ import { useEffect } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Redirecionando…" },
+      { title: "Carregando…" },
       { name: "robots", content: "noindex" },
       { httpEquiv: "refresh", content: "0; url=/modao" },
     ],
@@ -19,8 +19,28 @@ function RootRedirect() {
   }, []);
 
   return (
-    <p style={{ fontFamily: "system-ui, sans-serif", padding: 24 }}>
-      Redirecionando para <a href="/modao">/modao</a>…
-    </p>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#fff",
+      }}
+    >
+      <div
+        aria-label="Carregando"
+        role="status"
+        style={{
+          width: 48,
+          height: 48,
+          borderRadius: "50%",
+          border: "4px solid rgba(65,38,19,.18)",
+          borderTopColor: "#412613",
+          animation: "spin 0.8s linear infinite",
+        }}
+      />
+      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
+    </div>
   );
 }
