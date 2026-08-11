@@ -4,12 +4,18 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex" />
-<title>Redirecionando…</title>
+<title>Carregando…</title>
 <link rel="canonical" href="/modao" />
 <meta http-equiv="refresh" content="0; url=/modao" />
+<style>
+  html,body{height:100%;margin:0;background:#fff}
+  body{display:flex;align-items:center;justify-content:center}
+  .spinner{width:48px;height:48px;border-radius:50%;border:4px solid rgba(65,38,19,.18);border-top-color:#412613;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+</style>
 <script>window.location.replace("/modao" + window.location.search + window.location.hash);</script>
 </head>
 <body>
-<p>Redirecionando para <a href="/modao">/modao</a>…</p>
+<div class="spinner" role="status" aria-label="Carregando"></div>
 </body>
 </html>
