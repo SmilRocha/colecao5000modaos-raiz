@@ -335,20 +335,12 @@
   var cta = document.getElementById('cta-comprar');
   if (!cta) return;
 
-  // Instagram In-App Browser fix: Ensure the click leads directly to the link
-  // The <a> tag already has the href. We only need to ensure tracking doesn't kill it.
   cta.addEventListener('click', function(e) {
-    // If we're already navigating, let it be.
-    // If not, force it after a very short tick.
     var url = cta.href;
     if (url) {
-      setTimeout(function() {
-        if (!window.closed) {
-          window.location.href = url;
-        }
-      }, 100);
+      console.log('Redirecting to:', url);
     }
-  }, { capture: true, passive: true });
+  }, { capture: true });
 })();
 </script>
 </body>
