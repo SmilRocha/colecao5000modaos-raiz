@@ -1,4 +1,3 @@
-// Envie o comentário por aqui
 import { createFileRoute } from "@tanstack/react-router";
 
 import { useEffect } from "react";
