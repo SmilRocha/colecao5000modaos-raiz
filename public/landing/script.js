@@ -10,8 +10,6 @@
       var DURATION = 24 * 60 * 60 * 1000; // 24h
       
       // Use a stable start time based on the day to avoid resets on refresh
-      // or just use a fixed 24h relative to "now" but stored in session if needed.
-      // For this simple version, let's just make sure it's running.
       var now = new Date();
       var startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
       
@@ -36,24 +34,41 @@
     }
   }
 
-  // Ensure initialization even if DOMContentLoaded already fired
-  if (document.readyState === 'interactive' || document.readyState === 'complete') {
-    initCountdown();
-  } else {
-    document.addEventListener('DOMContentLoaded', initCountdown);
+  // Force re-run if script loaded before element appeared
+  function ensureReady() {
+    if (document.getElementById('countdown')) {
+      initCountdown();
+    } else {
+      setTimeout(ensureReady, 100);
+    }
   }
+  ensureReady();
 
   // --- Smooth scroll for any in-page anchor link (Capture phase to avoid conflicts) ---
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a[href^="#"]');
     if (!a) return;
+    
     var id = a.getAttribute('href');
     if (!id || id === '#') return;
+    
+    // Select the target element
     var target = document.querySelector(id);
     if (!target) return;
+
+    // Prevent default and stop propagation to avoid jumping or UTMify interference
     e.preventDefault();
     e.stopImmediatePropagation();
+    
+    // Perform smooth scroll
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    // Update URL hash without jumping if needed, or just let it scroll
+    if (history.pushState) {
+      history.pushState(null, null, id);
+    } else {
+      location.hash = id;
+    }
   }, true);
 
   // --- FAQ: close other <details> when one opens (accordion behavior) ---
