@@ -104,10 +104,12 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
     0 30px 60px -20px rgba(0,0,0,.55),
     0 8px 20px rgba(0,0,0,.35),
     inset 0 0 0 1px rgba(255,255,255,.04);
-  animation:vinyl-spin 6s linear infinite;
-  animation-play-state:paused;
+  animation: vinyl-spin 6s linear infinite;
+  animation-play-state: paused !important;
 }
-.vinyl.is-playing{animation-play-state:running}
+.vinyl.is-playing {
+  animation-play-state: running !important;
+}
 .vinyl-disc{position:absolute;inset:0;border-radius:50%}
 .vinyl-label{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
@@ -329,10 +331,10 @@ blockquote{
 
 /* ---------- Covers auto-carousel ---------- */
 .covers-carousel{overflow:hidden;position:relative;width:100%}
-.covers-track{display:flex;gap:20px;width:max-content;animation:covers-scroll 22s linear infinite;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.covers-track .cover{flex:0 0 auto;width:220px;display:flex;flex-direction:column;transform:translateZ(0)}
-.covers-track .cover img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;height:220px;image-rendering:-webkit-optimize-contrast}
-@keyframes covers-scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+.covers-track{display:flex;gap:20px;width:max-content;animation:covers-scroll 22s linear infinite}
+.covers-track .cover{flex:0 0 auto;width:220px;display:flex;flex-direction:column}
+.covers-track .cover img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+@keyframes covers-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:600px){
   .covers-track .cover{width:78vw;max-width:340px}
   .covers-track .cover img{height:auto}
@@ -368,15 +370,15 @@ blockquote{
           mask-image:linear-gradient(0deg,#000,transparent);
 }
 .paredao-row{overflow:hidden;width:100%}
-.paredao-track{display:flex;gap:0;width:max-content;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.paredao-track{display:flex;gap:0;width:max-content}
 .paredao-track img{
   flex:0 0 auto;height:260px;width:auto;display:block;
-  object-fit:cover;transform:translateZ(0);
+  object-fit:cover;
 }
 .paredao-track-right{animation:paredao-right 22s linear infinite}
 .paredao-track-left{animation:paredao-left 22s linear infinite}
-@keyframes paredao-right{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
-@keyframes paredao-left{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes paredao-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes paredao-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:600px){
   .paredao-track img{height:200px}
   .paredao-track-right,.paredao-track-left{animation-duration:20s}
