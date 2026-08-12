@@ -334,8 +334,8 @@ blockquote{
 .covers-track .cover img{width:100%;aspect-ratio:1/1;object-fit:cover}
 @keyframes covers-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:600px){
-  .covers-track .cover{width:78vw;max-width:340px}
-  .covers-track{gap:16px;animation-duration:28s}
+  .covers-track .cover{width:220px} /* Voltou para o tamanho padrão anterior */
+  .covers-track{gap:16px;animation-duration:22s}
 }
 @media (prefers-reduced-motion:reduce){.covers-track{animation:none}}
 
