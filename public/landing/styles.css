@@ -104,10 +104,12 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
     0 30px 60px -20px rgba(0,0,0,.55),
     0 8px 20px rgba(0,0,0,.35),
     inset 0 0 0 1px rgba(255,255,255,.04);
-  animation:vinyl-spin 6s linear infinite;
-  animation-play-state:paused;
+  animation: vinyl-spin 6s linear infinite;
+  animation-play-state: paused !important;
 }
-.vinyl.is-playing{animation-play-state:running}
+.vinyl.is-playing {
+  animation-play-state: running !important;
+}
 .vinyl-disc{position:absolute;inset:0;border-radius:50%}
 .vinyl-label{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
