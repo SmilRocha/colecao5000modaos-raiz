@@ -4,11 +4,10 @@ import { useEffect } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Carregando…" },
+      { title: "Coleção Modão Sertanejo Raiz — Redirecionando" },
+      { name: "description", content: "Redirecionando para a Coleção Modão Sertanejo Raiz." },
       { name: "robots", content: "noindex" },
-      { httpEquiv: "refresh", content: "0; url=/modao" },
     ],
-    links: [{ rel: "canonical", href: "/modao" }],
   }),
   component: RootRedirect,
 });
