@@ -78,7 +78,6 @@
   var audio = document.getElementById('sample-audio');
   var vinyl = document.getElementById('vinyl');
   if (audio) {
-    console.log('Audio element found, initializing listeners');
     audio.addEventListener('timeupdate', function () {
       if (audio.currentTime >= 45) {
         audio.pause();
@@ -87,25 +86,15 @@
     });
     
     if (vinyl) {
-      audio.addEventListener('play',  function () { 
-        console.log('Audio playing, adding is-playing class');
-        vinyl.classList.add('is-playing'); 
-      });
-      audio.addEventListener('pause', function () { 
-        console.log('Audio paused, removing is-playing class');
-        vinyl.classList.remove('is-playing'); 
-      });
-      audio.addEventListener('ended', function () { 
-        vinyl.classList.remove('is-playing'); 
-      });
+      audio.addEventListener('play',  function () { vinyl.classList.add('is-playing'); });
+      audio.addEventListener('pause', function () { vinyl.classList.remove('is-playing'); });
+      audio.addEventListener('ended', function () { vinyl.classList.remove('is-playing'); });
     }
 
-    // Direct click listener for testing
+    // Direct listener for vinyl play button
     var playBtn = document.getElementById('vinyl-play');
     if (playBtn) {
-      console.log('Play button found, attaching listener');
       playBtn.addEventListener('click', function (e) {
-        console.log('Vinyl play button clicked');
         e.preventDefault();
         e.stopPropagation();
         if (audio.paused) { 
