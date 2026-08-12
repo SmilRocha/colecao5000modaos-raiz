@@ -105,10 +105,10 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
     0 8px 20px rgba(0,0,0,.35),
     inset 0 0 0 1px rgba(255,255,255,.04);
   animation: vinyl-spin 6s linear infinite;
-  animation-play-state: paused !important;
+  animation-play-state: paused;
 }
 .vinyl.is-playing {
-  animation-play-state: running !important;
+  animation-play-state: running;
 }
 .vinyl-disc{position:absolute;inset:0;border-radius:50%}
 .vinyl-label{
@@ -331,9 +331,9 @@ blockquote{
 
 /* ---------- Covers auto-carousel ---------- */
 .covers-carousel{overflow:hidden;position:relative;width:100%}
-.covers-track{display:flex;gap:20px;width:max-content;animation:covers-scroll 22s linear infinite}
+.covers-track{display:flex;gap:20px;width:max-content;animation:covers-scroll 22s linear infinite;will-change:transform}
 .covers-track .cover{flex:0 0 auto;width:220px;display:flex;flex-direction:column}
-.covers-track .cover img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.covers-track .cover img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;height:220px}
 @keyframes covers-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:600px){
   .covers-track .cover{width:78vw;max-width:340px}
