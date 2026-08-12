@@ -105,10 +105,10 @@ h3{font-size:1.15rem;color:var(--ink-strong)}
     0 8px 20px rgba(0,0,0,.35),
     inset 0 0 0 1px rgba(255,255,255,.04);
   animation: vinyl-spin 6s linear infinite;
-  animation-play-state: paused !important;
+  animation-play-state: paused;
 }
 .vinyl.is-playing {
-  animation-play-state: running !important;
+  animation-play-state: running;
 }
 .vinyl-disc{position:absolute;inset:0;border-radius:50%}
 .vinyl-label{
