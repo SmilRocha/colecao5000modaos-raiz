@@ -330,39 +330,33 @@
 </script>
 <script>
 (function() {
-  var cta = document.getElementById('cta-comprar');
-  if (!cta) return;
-
   document.addEventListener('click', function(e) {
     var el = e.target;
-    while (el && el !== cta && el !== document.body) {
+    while (el && el !== document.body) {
+      if (el.tagName === 'A' && el.getAttribute('href') && el.getAttribute('href').indexOf('ggcheckout.app') !== -1) {
+        break;
+      }
       el = el.parentElement;
     }
-    if (el !== cta) return;
-
-    var url = cta.getAttribute('href');
-    if (!url) return;
-
-    var navigated = false;
-
-    var onBlur = function() { navigated = true; };
-    var onVisibility = function() { if (document.hidden) navigated = true; };
-    var onBeforeUnload = function() { navigated = true; };
-
-    window.addEventListener('blur', onBlur, { once: true });
-    document.addEventListener('visibilitychange', onVisibility, { once: true });
-    window.addEventListener('beforeunload', onBeforeUnload, { once: true });
-
-    window.setTimeout(function() {
-      window.removeEventListener('blur', onBlur);
-      document.removeEventListener('visibilitychange', onVisibility);
-      window.removeEventListener('beforeunload', onBeforeUnload);
-
-      if (!navigated) {
-        window.open(url, '_blank', 'noopener');
+    
+    if (!el || el.tagName !== 'A') return;
+    
+    // 1. Evita o comportamento padrão do link
+    e.preventDefault();
+    e.stopPropagation();
+    
+    var url = el.getAttribute('href');
+    
+    // 2. Dispara o tracking do Utmify de forma não bloqueante (se a função existir)
+    try {
+      if (window.utmify && typeof window.utmify.track === 'function') {
+        window.utmify.track('click_checkout', { url: url });
       }
-    }, 300);
-  }, true);
+    } catch (err) {}
+
+    // 3. Navegação direta na mesma aba, de forma síncrona
+    window.location.href = url;
+  }, true); // Capture phase para interceptar antes de outros scripts
 })();
 </script>
 </body>
