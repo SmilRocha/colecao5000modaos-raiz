@@ -58,20 +58,29 @@
     if (!a) return;
     
     var id = a.getAttribute('href');
-    if (!id || id === '#') return;
+    // 3) CORRIGIR O ERRO DE SINTAXE COM href="#" (ignorar links vazios ou curtos)
+    if (!id || id === '#' || id.length <= 1) return;
     
     // Select the target element
-    var target = document.querySelector(id);
+    var target;
+    try {
+      target = document.querySelector(id);
+    } catch (err) {
+      console.warn('Invalid selector:', id);
+      return;
+    }
+    
     if (!target) return;
 
-    // Prevent default and stop propagation to avoid jumping or UTMify interference
+    // 2) CORRIGIR CONFLITO: Só chamamos stopImmediatePropagation() após confirmar que é uma âncora válida.
+    // Isso permite que links de checkout (que não entram neste bloco) sejam processados pelo applyParams.
     e.preventDefault();
     e.stopImmediatePropagation();
     
     // Perform smooth scroll
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     
-    // Update URL hash without jumping if needed, or just let it scroll
+    // Update URL hash without jumping
     if (history.pushState) {
       history.pushState(null, null, id);
     } else {
