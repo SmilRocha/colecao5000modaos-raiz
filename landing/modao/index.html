@@ -281,6 +281,55 @@
 <script src="../script.js" defer></script>
 <script>
 (function() {
+  function readSearch() {
+    var s = window.location.search;
+    if (s && s.length > 1) return s;
+    try {
+      if (window.parent && window.parent !== window && window.parent.location.search) {
+        return window.parent.location.search;
+      }
+    } catch (e) {}
+    try {
+      if (document.referrer) {
+        var r = new URL(document.referrer);
+        if (r.search && r.search.length > 1) return r.search;
+      }
+    } catch (e) {}
+    return '';
+  }
+
+  var incoming = new URLSearchParams(readSearch());
+
+  function applyParams() {
+    var links = document.querySelectorAll('a[href*="ggcheckout"]');
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i];
+      var base = a.getAttribute('href');
+      if (!base) continue;
+      var u;
+      try { u = new URL(base, window.location.href); } catch (e) { continue; }
+      u.search = '';
+      incoming.forEach(function(value, key) {
+        if (value !== '' && value !== null && typeof value !== 'undefined') {
+          u.searchParams.set(key, value);
+        }
+      });
+      a.setAttribute('href', u.toString());
+    }
+  }
+
+  var hasIncoming = false;
+  incoming.forEach(function(value) { if (value !== '') hasIncoming = true; });
+
+  if (hasIncoming) {
+    applyParams();
+    document.addEventListener('DOMContentLoaded', applyParams);
+    document.addEventListener('click', applyParams, true);
+  }
+})();
+</script>
+<script>
+(function() {
   var cta = document.getElementById('cta-comprar');
   if (!cta) return;
 
