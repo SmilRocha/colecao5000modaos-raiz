@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/modao")({
   head: () => ({
@@ -13,9 +14,16 @@ export const Route = createFileRoute("/modao")({
 });
 
 function Modao() {
+  const [src, setSrc] = useState("/landing/modao/index.html");
+
+  useEffect(() => {
+    const qs = window.location.search;
+    if (qs && qs.length > 1) setSrc("/landing/modao/index.html" + qs);
+  }, []);
+
   return (
     <iframe
-      src="/landing/modao/index.html"
+      src={src}
       title="Landing — Coleção Modão Sertanejo Raiz (R$10,00)"
       style={{ width: "100vw", height: "100vh", border: "none", display: "block" }}
     />
