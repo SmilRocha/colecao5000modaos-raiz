@@ -316,27 +316,26 @@
         continue;
       }
       
-      // Preserve existing parameters that are already in the checkout URL (like checkout IDs)
-      var currentParams = new URLSearchParams(url.search);
+      // 1) Identify the core checkout base (origin + pathname)
+      var finalUrl = url.origin + url.pathname;
       
-      // Add incoming parameters
+      // 2) Start fresh for UTMs
+      var newParams = new URLSearchParams();
+
+      // 3) Only add parameters from the page's actual URL (incoming)
+      // ignoring empty values or placeholders like 'organic'
       incoming.forEach(function(value, key) {
-        if (value && value !== '' && value !== 'undefined' && value !== 'null') {
-          currentParams.set(key, value);
+        if (value && value !== '' && value !== 'undefined' && value !== 'null' && value !== 'organic') {
+          newParams.set(key, value);
         }
       });
       
-      // Clean up empty parameters
-      var cleanParams = new URLSearchParams();
-      currentParams.forEach(function(v, k) {
-        if (v && v !== '' && v !== 'undefined' && v !== 'null') {
-          cleanParams.set(k, v);
-        }
-      });
+      var search = newParams.toString();
+      if (search) {
+        finalUrl += '?' + search;
+      }
       
-      var finalSearch = cleanParams.toString();
-      url.search = finalSearch ? '?' + finalSearch : '';
-      a.setAttribute('href', url.toString());
+      a.setAttribute('href', finalUrl);
     }
   }
 
