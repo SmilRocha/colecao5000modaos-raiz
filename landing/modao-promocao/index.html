@@ -220,7 +220,7 @@
         <li>✔ Bônus: Tutorial de Transferência pro Pendrive</li>
         <li>✔ E muito mais</li>
       </ul>
-      <a href="https://ggcheckout.app/checkout/v5/RnJ0Ti211stzzbMFfqYP" class="btn btn-cta btn-xl" id="cta-comprar" target="_blank" rel="noopener">GARANTIR MINHA COLEÇÃO</a>
+      <a href="https://ggcheckout.app/checkout/v5/RnJ0Ti211stzzbMFfqYP" class="btn btn-cta btn-xl" id="cta-comprar" target="_self">GARANTIR MINHA COLEÇÃO</a>
       <small class="cta-sub">🔒 Compra 100% Segura · ⚡ Acesso Imediato · 📲 Receba na hora por WhatsApp e E-mail</small>
     </div>
   </div>
@@ -341,22 +341,15 @@
     
     if (!el || el.tagName !== 'A') return;
     
-    // 1. Evita o comportamento padrão do link
-    e.preventDefault();
-    e.stopPropagation();
-    
+    // O clique agora segue o comportamento nativo do navegador (a navegação acontece pelo href direto).
+    // Disparamos o tracking de forma não bloqueante.
     var url = el.getAttribute('href');
-    
-    // 2. Dispara o tracking do Utmify de forma não bloqueante (se a função existir)
     try {
       if (window.utmify && typeof window.utmify.track === 'function') {
         window.utmify.track('click_checkout', { url: url });
       }
     } catch (err) {}
-
-    // 3. Navegação direta na mesma aba, de forma síncrona
-    window.location.href = url;
-  }, true); // Capture phase para interceptar antes de outros scripts
+  }, true); // Capture phase para garantir que o tracking dispare no início do clique
 })();
 </script>
 </body>
