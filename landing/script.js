@@ -3,23 +3,31 @@
   'use strict';
 
   // --- Countdown: 24h cycle, resets when it hits zero ---
-  var el = document.getElementById('countdown');
-  if (el) {
-    var DURATION = 24 * 60 * 60 * 1000; // 24h
-    var start = Date.now();
-    function tick() {
-      var elapsed = Date.now() - start;
-      var remaining = DURATION - (elapsed % DURATION);
-      var h = Math.floor(remaining / 3600000);
-      var m = Math.floor((remaining % 3600000) / 60000);
-      var s = Math.floor((remaining % 60000) / 1000);
-      el.textContent =
-        String(h).padStart(2, '0') + ':' +
-        String(m).padStart(2, '0') + ':' +
-        String(s).padStart(2, '0');
+  function initCountdown() {
+    var el = document.getElementById('countdown');
+    if (el) {
+      var DURATION = 24 * 60 * 60 * 1000; // 24h
+      var start = Date.now();
+      function tick() {
+        var elapsed = Date.now() - start;
+        var remaining = DURATION - (elapsed % DURATION);
+        var h = Math.floor(remaining / 3600000);
+        var m = Math.floor((remaining % 3600000) / 60000);
+        var s = Math.floor((remaining % 60000) / 1000);
+        el.textContent =
+          String(h).padStart(2, '0') + ':' +
+          String(m).padStart(2, '0') + ':' +
+          String(s).padStart(2, '0');
+      }
+      tick();
+      setInterval(tick, 1000);
     }
-    tick();
-    setInterval(tick, 1000);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCountdown);
+  } else {
+    initCountdown();
   }
 
   // --- Smooth scroll for any in-page anchor link (Capture phase to avoid conflicts) ---
