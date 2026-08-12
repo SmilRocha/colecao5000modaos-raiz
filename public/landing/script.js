@@ -86,30 +86,21 @@
     });
     
     if (vinyl) {
-      audio.addEventListener('play',  function () { 
-        vinyl.classList.add('is-playing'); 
-      });
-      audio.addEventListener('pause', function () { 
-        vinyl.classList.remove('is-playing'); 
-      });
-      audio.addEventListener('ended', function () { 
-        vinyl.classList.remove('is-playing'); 
-      });
+      audio.addEventListener('play',  function () { vinyl.classList.add('is-playing'); });
+      audio.addEventListener('pause', function () { vinyl.classList.remove('is-playing'); });
+      audio.addEventListener('ended', function () { vinyl.classList.remove('is-playing'); });
     }
 
-    // Use delegation on the vinyl card or container to avoid capture-phase interference
-    var vinylCard = document.querySelector('.vinyl-card');
-    if (vinylCard) {
-      vinylCard.addEventListener('click', function (e) {
-        var playBtn = e.target.closest('#vinyl-play');
-        if (playBtn) {
-          e.preventDefault();
-          e.stopPropagation();
-          if (audio.paused) { 
-            audio.play().catch(function(err) { console.error('Play failed:', err); }); 
-          } else { 
-            audio.pause(); 
-          }
+    // Direct listener for vinyl play button
+    var playBtn = document.getElementById('vinyl-play');
+    if (playBtn) {
+      playBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (audio.paused) { 
+          audio.play().catch(function(err) { console.error('Play failed:', err); }); 
+        } else { 
+          audio.pause(); 
         }
       });
     }
