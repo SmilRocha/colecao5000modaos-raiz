@@ -34,15 +34,23 @@
     }
   }
 
-  // Force re-run if script loaded before element appeared
-  function ensureReady() {
-    if (document.getElementById('countdown')) {
-      initCountdown();
-    } else {
-      setTimeout(ensureReady, 100);
-    }
+  // Use DOMContentLoaded first, fallback to ensureReady if needed
+  function setup() {
+    initCountdown();
   }
-  ensureReady();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setup);
+  } else {
+    setup();
+  }
+
+  // Double check initialization after a short delay for slow mobile browsers
+  setTimeout(function() {
+    if (document.getElementById('countdown') && !document.getElementById('countdown').textContent.includes(':')) {
+      initCountdown();
+    }
+  }, 1000);
 
   // --- Smooth scroll for any in-page anchor link (Capture phase to avoid conflicts) ---
   document.addEventListener('click', function (e) {
