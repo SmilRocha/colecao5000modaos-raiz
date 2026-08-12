@@ -300,7 +300,11 @@
   }
 
   var incoming = new URLSearchParams(readSearch());
-
+  
+  // Remove pre-defined organic or empty params that shouldn't be there by default
+  // and prioritize actual incoming UTMs.
+  var utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'xcod', 'src', 'sck'];
+  
   function applyParams() {
     var links = document.querySelectorAll('a[href*="ggcheckout"]');
     for (var i = 0; i < links.length; i++) {
@@ -309,26 +313,32 @@
       if (!base) continue;
       var u;
       try { u = new URL(base, window.location.href); } catch (e) { continue; }
+      
+      // Clear existing search to keep it "puro" if no incoming params
       u.search = '';
+      
       incoming.forEach(function(value, key) {
         if (value !== '' && value !== null && typeof value !== 'undefined') {
           u.searchParams.set(key, value);
         }
       });
+      
+      // If the link still has empty or placeholder UTMs after merging, clean them
+      var params = new URLSearchParams(u.search);
+      var hasAny = false;
+      params.forEach(function(v, k) { if (v) hasAny = true; else params.delete(k); });
+      
+      u.search = params.toString();
       a.setAttribute('href', u.toString());
     }
   }
 
-  var hasIncoming = false;
-  incoming.forEach(function(value) { if (value !== '') hasIncoming = true; });
+  applyParams();
+  document.addEventListener('DOMContentLoaded', applyParams);
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('a')) applyParams();
+  }, true);
 
-  if (hasIncoming) {
-    applyParams();
-    document.addEventListener('DOMContentLoaded', applyParams);
-    document.addEventListener('click', function(e) {
-      if (e.target.closest('a')) applyParams();
-    }, true);
-  }
 })();
 </script>
 <script>
