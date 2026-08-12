@@ -37,6 +37,14 @@
   // Use DOMContentLoaded first, fallback to ensureReady if needed
   function setup() {
     initCountdown();
+    if (!initAudio()) {
+      // Retry if elements aren't ready yet
+      var retryCount = 0;
+      var retryInterval = setInterval(function() {
+        retryCount++;
+        if (initAudio() || retryCount > 10) clearInterval(retryInterval);
+      }, 500);
+    }
   }
 
   if (document.readyState === 'loading') {
@@ -51,6 +59,7 @@
       initCountdown();
     }
   }, 1000);
+
 
   // --- Smooth scroll for any in-page anchor link (Capture phase to avoid conflicts) ---
   document.addEventListener('click', function (e) {
