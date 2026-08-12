@@ -316,20 +316,20 @@
         continue;
       }
       
-      // Clear ALL existing parameters first to ensure a "clean" link
+      // 1) Identify the core checkout base (origin + pathname)
+      var finalUrl = url.origin + url.pathname;
+      
+      // 2) Start fresh for UTMs
       var newParams = new URLSearchParams();
 
-      // Add incoming parameters only if they exist
-      var hasIncoming = false;
+      // 3) Only add parameters from the page's actual URL (incoming)
+      // ignoring empty values or placeholders like 'organic'
       incoming.forEach(function(value, key) {
         if (value && value !== '' && value !== 'undefined' && value !== 'null' && value !== 'organic') {
           newParams.set(key, value);
-          hasIncoming = true;
         }
       });
       
-      // Update the URL: use the clean base or the base with merged UTMs
-      var finalUrl = url.origin + url.pathname;
       var search = newParams.toString();
       if (search) {
         finalUrl += '?' + search;
