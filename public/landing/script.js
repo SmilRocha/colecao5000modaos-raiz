@@ -77,7 +77,25 @@
   // --- Audio sample: limit to 45s ---
   var audio = document.getElementById('sample-audio');
   var vinyl = document.getElementById('vinyl');
-  if (audio) {
+  
+  if (audio && vinyl) {
+    // Event delegation on document to handle the vinyl play button
+    // Using capture phase to try and be first
+    document.addEventListener('click', function(e) {
+      var playBtn = e.target.closest('#vinyl-play');
+      if (playBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        
+        if (audio.paused) {
+          audio.play().catch(function(err) { console.error('Play failed:', err); });
+        } else {
+          audio.pause();
+        }
+      }
+    }, true);
+
     audio.addEventListener('timeupdate', function () {
       if (audio.currentTime >= 45) {
         audio.pause();
@@ -85,25 +103,9 @@
       }
     });
     
-    if (vinyl) {
-      audio.addEventListener('play',  function () { vinyl.classList.add('is-playing'); });
-      audio.addEventListener('pause', function () { vinyl.classList.remove('is-playing'); });
-      audio.addEventListener('ended', function () { vinyl.classList.remove('is-playing'); });
-    }
-
-    // Direct listener for vinyl play button
-    var playBtn = document.getElementById('vinyl-play');
-    if (playBtn) {
-      playBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (audio.paused) { 
-          audio.play().catch(function(err) { console.error('Play failed:', err); }); 
-        } else { 
-          audio.pause(); 
-        }
-      });
-    }
+    audio.addEventListener('play',  function () { vinyl.classList.add('is-playing'); });
+    audio.addEventListener('pause', function () { vinyl.classList.remove('is-playing'); });
+    audio.addEventListener('ended', function () { vinyl.classList.remove('is-playing'); });
   }
 
   // --- Centralized UTM logic ---
