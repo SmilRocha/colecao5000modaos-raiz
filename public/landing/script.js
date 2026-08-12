@@ -22,17 +22,18 @@
     setInterval(tick, 1000);
   }
 
-  // --- Smooth scroll for any in-page anchor link ---
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      var id = a.getAttribute('href');
-      if (!id || id === '#') return;
-      var target = document.querySelector(id);
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
+  // --- Smooth scroll for any in-page anchor link (Capture phase to avoid conflicts) ---
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href');
+    if (!id || id === '#') return;
+    var target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, true);
 
   // --- FAQ: close other <details> when one opens (accordion behavior) ---
   var allDetails = document.querySelectorAll('.faq details');
