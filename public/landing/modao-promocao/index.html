@@ -316,28 +316,26 @@
         continue;
       }
       
-      // Preserve existing parameters (like checkout IDs)
-      var currentParams = new URLSearchParams(url.search);
-      
-      // Clear empty or placeholder parameters before merging
-      var keysToClear = [];
-      currentParams.forEach(function(v, k) {
-        if (!v || v === '' || v === 'undefined' || v === 'null' || (k === 'utm_source' && v === 'organic')) {
-          keysToClear.push(k);
-        }
-      });
-      keysToClear.forEach(function(k) { currentParams.delete(k); });
+      // Clear ALL existing parameters first to ensure a "clean" link
+      var newParams = new URLSearchParams();
 
-      // Add incoming parameters
+      // Add incoming parameters only if they exist
+      var hasIncoming = false;
       incoming.forEach(function(value, key) {
-        if (value && value !== '' && value !== 'undefined' && value !== 'null') {
-          currentParams.set(key, value);
+        if (value && value !== '' && value !== 'undefined' && value !== 'null' && value !== 'organic') {
+          newParams.set(key, value);
+          hasIncoming = true;
         }
       });
       
-      var finalSearch = currentParams.toString();
-      url.search = finalSearch ? '?' + finalSearch : '';
-      a.setAttribute('href', url.toString());
+      // Update the URL: use the clean base or the base with merged UTMs
+      var finalUrl = url.origin + url.pathname;
+      var search = newParams.toString();
+      if (search) {
+        finalUrl += '?' + search;
+      }
+      
+      a.setAttribute('href', finalUrl);
     }
   }
 
