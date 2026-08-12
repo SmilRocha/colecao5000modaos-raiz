@@ -84,17 +84,24 @@
         audio.currentTime = 0;
       }
     });
+    
     if (vinyl) {
       audio.addEventListener('play',  function () { vinyl.classList.add('is-playing'); });
       audio.addEventListener('pause', function () { vinyl.classList.remove('is-playing'); });
       audio.addEventListener('ended', function () { vinyl.classList.remove('is-playing'); });
     }
-    var playBtn = document.getElementById('vinyl-play');
-    if (playBtn) {
-      playBtn.addEventListener('click', function () {
-        if (audio.paused) { audio.play(); } else { audio.pause(); }
-      });
-    }
+
+    // Delegation for play button - more robust
+    document.addEventListener('click', function(e) {
+      var playBtn = e.target.closest('#vinyl-play');
+      if (playBtn) {
+        if (audio.paused) { 
+          audio.play().catch(function(err) { console.error('Play failed:', err); }); 
+        } else { 
+          audio.pause(); 
+        }
+      }
+    });
   }
 
   // --- Centralized UTM logic ---
