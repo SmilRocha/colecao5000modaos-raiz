@@ -336,15 +336,9 @@
   if (!cta) return;
 
   cta.addEventListener('click', function(e) {
-    // Synchronous redirect for synchronous click handling
-    // This is the most reliable way in Instagram In-App browser
-    var url = cta.href;
-    if (url) {
-      // Small tick to allow any tracking pixel to at least START firing
-      // but without standard async blocking.
-      // If we used window.location.href directly, it might be even safer.
-      console.log('Redirecting to:', url);
-    }
+    // Para navegadores in-app e evitar bloqueios, usamos o atributo href nativo do <a>
+    // O UTMify deve interceptar o clique normalmente se for rápido o suficiente.
+    console.log('Botão de checkout clicado, navegando...');
   }, { capture: true });
 })();
 </script>
