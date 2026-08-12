@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router"; // o erro ainda continua
 import { useEffect } from "react";
 
 export const Route = createFileRoute("/")({
