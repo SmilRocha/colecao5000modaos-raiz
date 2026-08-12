@@ -318,8 +318,14 @@
     }
   }
 
-  applyParams();
-  document.addEventListener('DOMContentLoaded', applyParams);
+  var hasIncoming = false;
+  incoming.forEach(function(value) { if (value !== '') hasIncoming = true; });
+
+  if (hasIncoming) {
+    applyParams();
+    document.addEventListener('DOMContentLoaded', applyParams);
+    document.addEventListener('click', applyParams, true);
+  }
 })();
 </script>
 <script>
