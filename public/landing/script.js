@@ -3,23 +3,44 @@
   'use strict';
 
   // --- Countdown: 24h cycle, resets when it hits zero ---
-  var el = document.getElementById('countdown');
-  if (el) {
-    var DURATION = 24 * 60 * 60 * 1000; // 24h
-    var start = Date.now();
-    function tick() {
-      var elapsed = Date.now() - start;
-      var remaining = DURATION - (elapsed % DURATION);
-      var h = Math.floor(remaining / 3600000);
-      var m = Math.floor((remaining % 3600000) / 60000);
-      var s = Math.floor((remaining % 60000) / 1000);
-      el.textContent =
-        String(h).padStart(2, '0') + ':' +
-        String(m).padStart(2, '0') + ':' +
-        String(s).padStart(2, '0');
+  function initCountdown() {
+    var el = document.getElementById('countdown');
+    if (el) {
+      console.log('Initializing countdown');
+      var DURATION = 24 * 60 * 60 * 1000; // 24h
+      
+      // Use a stable start time based on the day to avoid resets on refresh
+      // or just use a fixed 24h relative to "now" but stored in session if needed.
+      // For this simple version, let's just make sure it's running.
+      var now = new Date();
+      var startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+      
+      function tick() {
+        var currentTime = Date.now();
+        var elapsed = currentTime - startOfDay;
+        var remaining = DURATION - (elapsed % DURATION);
+        
+        var h = Math.floor(remaining / 3600000);
+        var m = Math.floor((remaining % 3600000) / 60000);
+        var s = Math.floor((remaining % 60000) / 1000);
+        
+        el.textContent =
+          String(h).padStart(2, '0') + ':' +
+          String(m).padStart(2, '0') + ':' +
+          String(s).padStart(2, '0');
+      }
+      tick();
+      setInterval(tick, 1000);
+    } else {
+      console.warn('Countdown element not found');
     }
-    tick();
-    setInterval(tick, 1000);
+  }
+
+  // Ensure initialization even if DOMContentLoaded already fired
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    initCountdown();
+  } else {
+    document.addEventListener('DOMContentLoaded', initCountdown);
   }
 
   // --- Smooth scroll for any in-page anchor link (Capture phase to avoid conflicts) ---
