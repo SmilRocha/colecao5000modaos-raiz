@@ -79,22 +79,25 @@
   var vinyl = document.getElementById('vinyl');
   
   if (audio && vinyl) {
-    // Event delegation on document to handle the vinyl play button
-    // Using capture phase to try and be first
-    document.addEventListener('click', function(e) {
-      var playBtn = e.target.closest('#vinyl-play');
-      if (playBtn) {
+    var playBtn = document.getElementById('vinyl-play');
+    if (playBtn) {
+      playBtn.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        e.stopImmediatePropagation();
         
         if (audio.paused) {
           audio.play().catch(function(err) { console.error('Play failed:', err); });
         } else {
           audio.pause();
         }
-      }
-    }, true);
+      });
+    }
+
+    // Backup listener on vinyl itself just in case
+    vinyl.addEventListener('click', function(e) {
+      if (e.target.closest('#vinyl-play')) return; // Already handled
+      if (audio.paused) audio.play(); else audio.pause();
+    });
 
     audio.addEventListener('timeupdate', function () {
       if (audio.currentTime >= 45) {
