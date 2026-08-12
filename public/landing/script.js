@@ -80,24 +80,28 @@
   
   if (audio && vinyl) {
     var playBtn = document.getElementById('vinyl-play');
-    if (playBtn) {
-      playBtn.addEventListener('click', function(e) {
+    
+    function toggleAudio(e) {
+      if (e) {
         e.preventDefault();
         e.stopPropagation();
-        
-        if (audio.paused) {
-          audio.play().catch(function(err) { console.error('Play failed:', err); });
-        } else {
-          audio.pause();
-        }
-      });
+      }
+      if (audio.paused) {
+        audio.play().catch(function(err) { console.error('Play failed:', err); });
+      } else {
+        audio.pause();
+      }
     }
 
-    // Backup listener on vinyl itself just in case
+    if (playBtn) {
+      playBtn.addEventListener('click', toggleAudio, true);
+    }
+    
+    // Vinyl click also toggles
     vinyl.addEventListener('click', function(e) {
-      if (e.target.closest('#vinyl-play')) return; // Already handled
-      if (audio.paused) audio.play(); else audio.pause();
-    });
+      if (e.target.closest('#vinyl-play')) return;
+      toggleAudio(e);
+    }, true);
 
     audio.addEventListener('timeupdate', function () {
       if (audio.currentTime >= 45) {
@@ -108,6 +112,7 @@
     
     audio.addEventListener('play',  function () { vinyl.classList.add('is-playing'); });
     audio.addEventListener('pause', function () { vinyl.classList.remove('is-playing'); });
+    audio.addEventListener('playing', function () { vinyl.classList.add('is-playing'); });
     audio.addEventListener('ended', function () { vinyl.classList.remove('is-playing'); });
   }
 
