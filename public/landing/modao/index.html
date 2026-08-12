@@ -299,11 +299,8 @@
     return '';
   }
 
-  var incoming = new URLSearchParams(readSearch());
-  
-  // Remove pre-defined organic or empty params that shouldn't be there by default
-  // and prioritize actual incoming UTMs.
-  var utms = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'xcod', 'src', 'sck'];
+  var searchStr = readSearch();
+  var incoming = new URLSearchParams(searchStr);
   
   function applyParams() {
     var links = document.querySelectorAll('a[href*="ggcheckout"]');
@@ -311,34 +308,52 @@
       var a = links[i];
       var base = a.getAttribute('href');
       if (!base) continue;
-      var u;
-      try { u = new URL(base, window.location.href); } catch (e) { continue; }
       
-      // Clear existing search to keep it "puro" if no incoming params
-      u.search = '';
+      var url;
+      try {
+        url = new URL(base, window.location.href);
+      } catch (e) {
+        continue;
+      }
       
+      // Preserve existing parameters that are already in the checkout URL (like checkout IDs)
+      var currentParams = new URLSearchParams(url.search);
+      
+      // Add incoming parameters
       incoming.forEach(function(value, key) {
-        if (value !== '' && value !== null && typeof value !== 'undefined') {
-          u.searchParams.set(key, value);
+        if (value && value !== '' && value !== 'undefined' && value !== 'null') {
+          currentParams.set(key, value);
         }
       });
       
-      // If the link still has empty or placeholder UTMs after merging, clean them
-      // Most checkouts don't like ?utm_source=&utm_medium=...
-      var params = new URLSearchParams(u.search);
-      var hasAny = false;
-      params.forEach(function(v, k) { if (v) hasAny = true; else params.delete(k); });
+      // Clean up empty parameters
+      var cleanParams = new URLSearchParams();
+      currentParams.forEach(function(v, k) {
+        if (v && v !== '' && v !== 'undefined' && v !== 'null') {
+          cleanParams.set(k, v);
+        }
+      });
       
-      u.search = params.toString();
-      a.setAttribute('href', u.toString());
+      var finalSearch = cleanParams.toString();
+      url.search = finalSearch ? '?' + finalSearch : '';
+      a.setAttribute('href', url.toString());
     }
   }
 
+  // Initial apply
   applyParams();
+  
+  // Apply on DOM content loaded
   document.addEventListener('DOMContentLoaded', applyParams);
+  
+  // Re-apply on any click to ensure dynamic links are caught
   document.addEventListener('click', function(e) {
-    if (e.target.closest('a')) applyParams();
+    var link = e.target.closest('a');
+    if (link && link.href.indexOf('ggcheckout') !== -1) {
+      applyParams();
+    }
   }, true);
+
 
 })();
 </script>
