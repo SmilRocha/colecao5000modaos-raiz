@@ -329,9 +329,9 @@ blockquote{
 
 /* ---------- Covers auto-carousel ---------- */
 .covers-carousel{overflow:hidden;position:relative;width:100%}
-.covers-track{display:flex;gap:20px;width:max-content;animation:covers-scroll 22s linear infinite}
+.covers-track{display:flex;gap:20px;width:max-content;animation:covers-scroll 22s linear infinite;will-change:transform}
 .covers-track .cover{flex:0 0 auto;width:220px}
-.covers-track .cover img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.covers-track .cover img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
 @keyframes covers-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:600px){
   .covers-track .cover{width:78vw;max-width:340px}
