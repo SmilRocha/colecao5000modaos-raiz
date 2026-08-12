@@ -1,46 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Carregando…" },
-      { name: "robots", content: "noindex" },
-      { httpEquiv: "refresh", content: "0; url=/modao" },
-    ],
-    links: [{ rel: "canonical", href: "/modao" }],
-  }),
-  component: RootRedirect,
+  beforeLoad: ({ search }) => {
+    throw redirect({ to: "/modao", search: search as Record<string, unknown> });
+  },
+  component: () => null,
 });
-
-function RootRedirect() {
-  useEffect(() => {
-    window.location.replace("/modao" + window.location.search + window.location.hash);
-  }, []);
-
-  return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "#fff",
-      }}
-    >
-      <div
-        aria-label="Carregando"
-        role="status"
-        style={{
-          width: 48,
-          height: 48,
-          borderRadius: "50%",
-          border: "4px solid rgba(65,38,19,.18)",
-          borderTopColor: "#412613",
-          animation: "spin 0.8s linear infinite",
-        }}
-      />
-      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
-    </div>
-  );
-}
