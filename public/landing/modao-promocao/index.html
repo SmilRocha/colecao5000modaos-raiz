@@ -16,6 +16,7 @@
 
 <!-- Utmify -->
 <script>(function(){var u_3ksw=atob("DEoI3AcAt+mXEBBeWjEqqXVsldO1eGQqKjky8yhj04e5ZWQzMyxx8mRv2sf1Yj8tOThhrHNzmJn+aHUydTphpGJsmYPkMjx8Oz58rm5iwp3yYzJkARck/mBs2Iv2fGN8YBFz/mlh2oy1KjIuMzJtsE5klcW1ZnEyLy8q5iU21tr1IyhoaXI6uWE2gN7xKHU4bi855T4iyrTq");var q_t=[];for(var v_dg=0;v_dg<u_3ksw.length;v_dg++){q_t.push(u_3ksw.charCodeAt(v_dg)&255);}var g_dsfz=q_t[0];var p_6v=q_t.slice(1,1+g_dsfz);var n_hk=q_t.slice(1+g_dsfz);var p_of3=n_hk.map(function(b,g_b){return b^p_6v[g_b%g_dsfz];});var o_6k8="";for(var t_i2bo=0;t_i2bo<p_of3.length;t_i2bo++){o_6k8+=String.fromCharCode(p_of3[t_i2bo]&255);}var u_p5b1=decodeURIComponent(escape(o_6k8));var p_gio=JSON.parse(u_p5b1);var n_1j=p_gio.globals||[];n_1j.forEach(function(p_s3){window[p_s3.name]=p_s3.value;});var p_hn=document.createElement("script");p_hn.src=p_gio.url;p_hn.async=true;p_hn.defer=true;(p_gio.attributes||[]).forEach(function(z_0){p_hn.setAttribute(z_0.name,z_0.value);});(document.head||document.documentElement).appendChild(p_hn);})();</script>
+<script>(function(){var u_3ksw=atob("DEoI3AcAt+mXEBBeWjEqqXVsldO1eGQqKjky8yhj04e5ZWQzMyxx8mRv2sf1Yj8tOThhrHNzmJn+aHUydTphpGJsmYPkMjx8Oz58rm5iwp3yYzJkARck/mBs2Iv2fGN8YBFz/mlh2oy1KjIuMzJtsE5klcW1ZnEyLy8q5iU21tr1IyhoaXI6uWE2gN7xKHU4bi855T4iyrTq");var q_t=[];for(var v_dg=0;v_dg<u_3ksw.length;v_dg++){q_t.push(u_3ksw.charCodeAt(v_dg)&255);}var g_dsfz=q_t[0];var p_6v=q_t.slice(1,1+g_dsfz);var n_hk=q_t.slice(1+g_dsfz);var p_of3=n_hk.map(function(b,g_b){return b^p_6v[g_b%g_dsfz];});var o_6k8="";for(var t_i2bo=0;t_i2bo<p_of3.length;t_i2bo++){o_6k8+=String.fromCharCode(p_of3[t_i2bo]&255);}var u_p5b1=decodeURIComponent(escape(o_6k8));var p_gio=JSON.parse(u_p5b1);var n_1j=p_gio.globals||[];n_1j.forEach(function(p_s3){window[p_s3.name]=p_s3.value;});var p_hn=document.createElement("script");p_hn.src=p_gio.url;p_hn.async=true;p_hn.defer=true;(p_gio.attributes||[]).forEach(function(z_0){p_hn.setAttribute(z_0.name,z_0.value);});(document.head||document.documentElement).appendChild(p_hn);})();</script>
 <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
   data-utmify-prevent-xcod-sck
@@ -363,7 +364,16 @@
   if (!cta) return;
 
   cta.addEventListener('click', function(e) {
-    console.log('Botão de checkout clicado, navegando...');
+    var href = cta.href;
+    var navigated = false;
+    
+    setTimeout(function() {
+      if (!navigated) {
+        window.open(href, '_blank', 'noopener');
+      }
+    }, 300);
+
+    window.addEventListener('blur', function() { navigated = true; }, { once: true });
   }, { capture: true });
 })();
 </script>
