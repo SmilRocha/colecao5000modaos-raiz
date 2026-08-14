@@ -542,7 +542,8 @@ blockquote{
 .vinyl.is-playing .vinyl-play-icon-pause{display:block}
 
 /* ---------- Heading highlight ---------- */
-.hl{color:#A96928}
+.hl{color:var(--hl)}
+.hl-red{color:var(--hl-red)}
 .sample-section .hl{color:#F0B96A}
 
 /* ---------- Guarantee seal image ---------- */
