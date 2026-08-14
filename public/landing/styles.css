@@ -330,12 +330,12 @@ blockquote{
 /* ---------- Covers auto-carousel ---------- */
 .covers-carousel{overflow:hidden;position:relative;width:100%}
 .covers-track{display:flex;gap:20px;width:max-content;animation:covers-scroll 22s linear infinite}
-.covers-track .cover{flex:0 0 auto;width:280px}
+.covers-track .cover{flex:0 0 auto;width:220px}
 .covers-track .cover img{width:100%;aspect-ratio:1/1;object-fit:cover}
 @keyframes covers-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:600px){
-  .covers-track .cover{width:260px} 
-  .covers-track{gap:16px;animation-duration:22s}
+  .covers-track .cover{width:78vw;max-width:340px}
+  .covers-track{gap:16px;animation-duration:28s}
 }
 @media (prefers-reduced-motion:reduce){.covers-track{animation:none}}
 

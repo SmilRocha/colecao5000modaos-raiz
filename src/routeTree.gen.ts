@@ -10,53 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ModaoRouteImport } from './routes/modao'
-import { Route as ModaoPromocaoRouteImport } from './routes/modao-promocao'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ModaoRoute = ModaoRouteImport.update({
-  id: '/modao',
-  path: '/modao',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ModaoPromocaoRoute = ModaoPromocaoRouteImport.update({
-  id: '/modao-promocao',
-  path: '/modao-promocao',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/modao': typeof ModaoRoute
-  '/modao-promocao': typeof ModaoPromocaoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/modao': typeof ModaoRoute
-  '/modao-promocao': typeof ModaoPromocaoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/modao': typeof ModaoRoute
-  '/modao-promocao': typeof ModaoPromocaoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/modao' | '/modao-promocao'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/modao' | '/modao-promocao'
-  id: '__root__' | '/' | '/modao' | '/modao-promocao'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ModaoRoute: typeof ModaoRoute
-  ModaoPromocaoRoute: typeof ModaoPromocaoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,38 +48,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/modao': {
-      id: '/modao'
-      path: '/modao'
-      fullPath: '/modao'
-      preLoaderRoute: typeof ModaoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/modao-promocao': {
-      id: '/modao-promocao'
-      path: '/modao-promocao'
-      fullPath: '/modao-promocao'
-      preLoaderRoute: typeof ModaoPromocaoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ModaoRoute: ModaoRoute,
-  ModaoPromocaoRoute: ModaoPromocaoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
