@@ -10,8 +10,6 @@
   --muted:#6B6258;
   --accent:#412613;
   --accent-dark:#2A180C;
-  --hl:#A96928;
-  --hl-red:#FF0000;
   --radius:8px;
   --max:1080px;
 }
@@ -542,8 +540,7 @@ blockquote{
 .vinyl.is-playing .vinyl-play-icon-pause{display:block}
 
 /* ---------- Heading highlight ---------- */
-.hl{color:var(--hl)}
-.hl-red{color:var(--hl-red)}
+.hl{color:#A96928}
 .sample-section .hl{color:#F0B96A}
 
 /* ---------- Guarantee seal image ---------- */
