@@ -7,6 +7,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "+5.000 modões de sertanejo raiz por R$10. Acesso vitalício." },
       { property: "og:title", content: "Coleção Modão Sertanejo Raiz" },
       { property: "og:description", content: "+5.000 modões de sertanejo raiz por R$10. Acesso vitalício." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Index,
