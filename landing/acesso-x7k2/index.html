@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow" />
 <title>Acesso liberado — Coleção Modão Sertanejo Raiz</title>
 <meta name="description" content="Seu acesso à Coleção Modão Sertanejo Raiz está liberado." />
-<meta name="theme-color" content="#0D0D0D" />
+<meta name="theme-color" content="#412613" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@900&display=swap" rel="stylesheet" />
@@ -17,68 +17,69 @@
      ========================================================= -->
 
 <style>
-:root{--bg:#0D0D0D;--card:#171310;--card2:#1F1915;--line:#3A2C20;--ink:#F5F5F5;--muted:#C9BFB4;--yellow:#FFD500;--gold:#FFC94D;--green:#22C55E;--wpp:#25D366;--brand:#412613}
+:root{--bg:#FFFFFF;--alt:#FAFAFA;--surface:#F5F5F3;--border:#E5E0DA;--ink:#2B2B2B;--heading:#3B2A1E;--muted:#6B6258;--accent:#412613;--accent-dark:#2A180C;--hl:#A96928;--wpp:#25D366}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Inter',Arial,system-ui,sans-serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-h1,h2,h3{font-family:'Merriweather',Georgia,serif;font-weight:900;line-height:1.2}
-h1{font-size:clamp(1.9rem,6vw,2.8rem)}
-h2{font-size:clamp(1.5rem,5vw,2.1rem);text-align:center}
-h3{font-size:1.2rem}
-.wrap{max-width:720px;margin:0 auto;padding:0 20px}
-section{padding:56px 0}
-.sub{color:var(--muted);text-align:center;margin:12px auto 28px;max-width:600px}
-.hl{color:var(--gold)}
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;padding:14px 22px;border:0;border-radius:12px;background:var(--yellow);color:#0D0D0D;font:800 1.05rem/1.2 'Inter',Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;cursor:pointer;box-shadow:0 6px 0 #B89A00;transition:transform .1s}
-.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #B89A00}
-.btn-wpp{background:var(--wpp);color:#fff;box-shadow:0 6px 0 #178a43}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',Arial,system-ui,sans-serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+h1,h2,h3{font-family:'Merriweather',Georgia,serif;font-weight:900;line-height:1.2;color:var(--heading)}
+h1{font-size:clamp(1.9rem,5vw,2.6rem)}
+h2{font-size:clamp(1.5rem,4vw,2rem);text-align:center}
+h3{font-size:1.1rem}
+.wrap{max-width:680px;margin:0 auto;padding:0 22px}
+section{padding:64px 0}
+.alt{background:var(--alt)}
+.sub{color:var(--muted);text-align:center;margin:12px auto 28px;max-width:560px}
+.hl{color:var(--hl)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:14px 32px;border:0;border-radius:999px;background:var(--accent);color:#fff;font:800 1rem/1.2 'Inter',Arial,sans-serif;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:0 10px 24px rgba(65,38,19,.25);transition:transform .15s,background .15s}
+.btn:hover{background:var(--accent-dark);transform:translateY(-2px)}
 /* topo */
-.hero{text-align:center;padding:48px 0 40px;background:radial-gradient(ellipse at top,rgba(65,38,19,.85),transparent 70%)}
-.check{width:96px;height:96px;margin:0 auto 22px;border-radius:50%;background:var(--green);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(34,197,94,.18)}
-.check svg{width:54px;height:54px}
-.hero p{color:var(--muted);margin:16px auto 28px;max-width:560px;font-size:1.1rem}
-.hero .btn{max-width:440px;margin:0 auto}
-.tip{font-size:.95rem!important;margin-top:16px!important}
+.hero{text-align:center;padding:72px 0 56px}
+.check{width:76px;height:76px;margin:0 auto 22px;border-radius:50%;background:var(--accent);display:grid;place-items:center}
+.check svg{width:40px;height:40px}
+.hero p{color:var(--muted);margin:14px auto 28px;max-width:520px}
 /* passos */
-.steps{display:grid;gap:16px}
-.step{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
-.num{flex:0 0 52px;height:52px;border-radius:50%;background:var(--yellow);color:#0D0D0D;font:800 1.5rem/52px 'Inter',sans-serif;text-align:center}
-.step h3{margin-bottom:6px;color:var(--gold)}
-.step p{color:var(--muted)}
+.steps{list-style:none;display:grid;gap:18px;margin-top:28px;counter-reset:s}
+.steps li{display:flex;gap:16px;align-items:flex-start}
+.steps li::before{counter-increment:s;content:counter(s);flex:0 0 36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);color:var(--accent);font:800 1rem/34px 'Inter',sans-serif;text-align:center}
+.steps p{color:var(--muted)}
+.steps strong{color:var(--heading)}
 /* músicas */
-#musicas{background:linear-gradient(180deg,#120e0b,var(--bg))}
-.search{width:100%;min-height:60px;padding:16px 18px 16px 52px;font:500 1.1rem 'Inter',sans-serif;color:var(--ink);background:var(--card2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%23FFC94D' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;border:2px solid var(--line);border-radius:14px;outline:none;margin-bottom:20px}
-.search:focus{border-color:var(--gold)}
-.list{display:grid;gap:12px;list-style:none}
-.folder{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:14px}
-.fname{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.1rem}
-.fname svg{flex:0 0 34px;height:34px}
-.empty{display:none;text-align:center;background:var(--card);border:1px dashed var(--gold);border-radius:14px;padding:24px;color:var(--muted)}
-.empty a{color:var(--wpp);font-weight:700}
+.search{width:100%;min-height:54px;padding:14px 18px 14px 50px;font:500 1rem 'Inter',sans-serif;color:var(--ink);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='none' stroke='%23412613' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='10' cy='10' r='7'/%3E%3Cpath d='m19 19-3.5-3.5'/%3E%3C/svg%3E") no-repeat 16px center;border:1px solid var(--border);border-radius:999px;outline:none;margin-bottom:18px}
+.search:focus{border-color:var(--accent)}
+.list{list-style:none;border:1px solid var(--border);border-radius:14px;background:#fff;overflow:hidden}
+.folder{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px 12px 20px;border-top:1px solid var(--border)}
+.folder:first-child{border-top:0}
+.folder.hide{display:none}
+.fname{font-weight:600;color:var(--heading)}
+.play{flex:0 0 44px;width:44px;height:44px;border-radius:50%;background:var(--accent);display:grid;place-items:center;transition:transform .15s,background .15s}
+.play:hover{background:var(--hl);transform:scale(1.08)}
+.play svg{width:18px;height:18px;margin-left:3px}
+.more{display:block;margin:20px auto 0;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:12px 28px;font:700 .95rem 'Inter',sans-serif;cursor:pointer}
+.more:hover{background:var(--accent);color:#fff}
+.empty{display:none;text-align:center;padding:20px;color:var(--muted)}
 /* bônus */
-.gift{border:3px dashed var(--gold);border-radius:20px;padding:32px 18px;background:rgba(255,201,77,.05)}
-.bonus{display:grid;gap:14px;margin-top:24px}
-.bcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:8px}
-.bcard h3{color:var(--gold)}
-.bcard p{color:var(--muted);margin-bottom:8px}
-/* aviso */
-.notice{border:2px solid var(--gold);border-radius:16px;padding:22px;background:var(--card);font-size:1.1rem}
-/* ajuda */
-.help{text-align:center}
-.help p{color:var(--muted);margin:14px auto 24px;max-width:560px}
-.help .btn{max-width:440px;margin:0 auto}
+.bonus{list-style:none;display:grid;gap:12px;margin-top:28px}
+.bonus li{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+.bonus span{display:block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--hl)}
+.bonus p{color:var(--muted);font-size:.95rem}
+/* instagram */
+.insta{text-align:center}
+.insta p{color:var(--muted);margin:10px auto 24px}
 /* faq */
-.faq{display:grid;gap:12px;margin-top:28px}
-.q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;color:var(--yellow);font:700 1.08rem/1.35 'Inter',sans-serif;cursor:pointer}
-.q span{font-size:1.8rem;line-height:1;color:var(--gold);flex:0 0 auto}
-.a{display:none;padding:14px 20px 4px;color:var(--muted)}
+.faq{display:grid;gap:10px;margin-top:32px}
+.q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:left;background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px 20px;color:var(--heading);font:700 1rem/1.35 'Inter',sans-serif;cursor:pointer}
+.q span{font-size:1.5rem;line-height:1;color:var(--hl)}
+.a{display:none;padding:10px 20px 4px;color:var(--muted)}
 .item.open .a{display:block}
 /* footer */
-footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;color:var(--muted);font-size:.95rem}
+footer{border-top:1px solid var(--border);padding:32px 0 100px;text-align:center;color:var(--muted);font-size:.9rem}
 footer nav{margin-top:10px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 14px}
-footer a{color:var(--gold)}
-@media(min-width:700px){.steps,.bonus{grid-template-columns:repeat(3,1fr)}.step{flex-direction:column}.folder{grid-template-columns:1fr 220px;align-items:center}}
+/* whatsapp flutuante */
+.wpp-float{position:fixed;right:22px;bottom:22px;z-index:1000;width:62px;height:62px;border-radius:50%;background:var(--wpp);color:#fff;display:grid;place-items:center;border:3px solid #fff;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s}
+.wpp-float:hover{transform:scale(1.06)}
+.wpp-float svg{width:34px;height:34px}
+@media(max-width:480px){.wpp-float{right:16px;bottom:16px;width:56px;height:56px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -87,65 +88,62 @@ footer a{color:var(--gold)}
   <section class="hero">
     <div class="wrap">
       <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-      <h1>Pagamento <span class="hl">confirmado!</span> 🎉</h1>
-      <p>Obrigado pela sua compra da Coleção Modão Sertanejo Raiz. Seu acesso já está liberado aqui embaixo, é só tocar no botão.</p>
-      <a href="#musicas" class="btn">ACESSAR MINHAS MÚSICAS</a>
-      <p class="tip">Guarde esta página nos favoritos do seu navegador pra acessar quando quiser.</p>
+      <h1>Pagamento <span class="hl">confirmado!</span></h1>
+      <p>Obrigado pela sua compra da Coleção Modão Sertanejo Raiz. Seu acesso já está liberado. Guarde esta página nos favoritos.</p>
+      <a href="#musicas" class="btn">Acessar minhas músicas</a>
     </div>
   </section>
 
-  <section>
+  <section class="alt">
     <div class="wrap">
-      <h2>Como ouvir e baixar, é <span class="hl">bem fácil</span></h2>
-      <div class="steps" style="margin-top:28px">
-        <div class="step"><div class="num">1</div><div><h3>📂 Toque em uma pasta</h3><p>Escolha o cantor ou a dupla que você quer ouvir e toque em ABRIR PASTA.</p></div></div>
-        <div class="step"><div class="num">2</div><div><h3>🎵 Escolha a música</h3><p>Toque na música pra ouvir na hora, ou toque nos três pontinhos e depois em Fazer download pra guardar no celular.</p></div></div>
-        <div class="step"><div class="num">3</div><div><h3>🤠 Pronto, é só curtir</h3><p>Músicas baixadas tocam sem internet, no carro, na roça ou onde você quiser.</p></div></div>
-      </div>
+      <h2>Como <span class="hl">ouvir e baixar</span></h2>
+      <ol class="steps">
+        <li><p><strong>Toque no play</strong> ao lado do cantor ou dupla que você quer ouvir.</p></li>
+        <li><p><strong>Escolha a música.</strong> Pra guardar no celular, toque nos três pontinhos e em Fazer download.</p></li>
+        <li><p><strong>Pronto!</strong> Músicas baixadas tocam sem internet, onde você quiser.</p></li>
+      </ol>
     </div>
   </section>
 
   <section id="musicas">
     <div class="wrap">
-      <h2>Seus <span class="hl">modões raiz</span> 🎶</h2>
-      <p class="sub">+5.000 músicas em alta qualidade (320kbps), organizadas por cantor e dupla.</p>
+      <h2>Seus <span class="hl">modões raiz</span></h2>
+      <p class="sub">+5.000 músicas em alta qualidade, organizadas por cantor e dupla.</p>
       <label for="busca" style="position:absolute;left:-9999px">Buscar cantor ou dupla</label>
-      <input id="busca" class="search" type="search" placeholder="Digite o nome do cantor ou da dupla..." autocomplete="off" />
+      <input id="busca" class="search" type="search" placeholder="Buscar cantor ou dupla..." autocomplete="off" />
       <ul id="lista" class="list"></ul>
-      <p id="vazio" class="empty">Não achou? <a href="#ajuda">Chame no WhatsApp</a> que a gente te ajuda.</p>
+      <p id="vazio" class="empty">Não achou? Chame a gente no WhatsApp que ajudamos.</p>
+      <button id="mais" class="more" type="button">Mostrar mais...</button>
     </div>
   </section>
 
-  <section>
+  <section class="alt">
     <div class="wrap">
-      <div class="gift">
-        <h2>Seus <span class="hl">bônus grátis</span> 🎁</h2>
-        <div class="bonus">
-          <div class="bcard"><h3>Bônus 01 — Coletânea de Videoclipes Raiz</h3><p>+100 vídeos MP4</p><a class="btn" href="#" target="_blank" rel="noopener">ABRIR BÔNUS</a></div>
-          <div class="bcard"><h3>Bônus 02 — Modões Atualizados 2026</h3><p>As regravações e lançamentos mais recentes do gênero</p><a class="btn" href="#" target="_blank" rel="noopener">ABRIR BÔNUS</a></div>
-          <div class="bcard"><h3>Bônus 03 — Tutorial de Como Passar pro Pendrive</h3><p>Passo a passo simples em vídeo, sem complicação</p><a class="btn" href="#" target="_blank" rel="noopener">ABRIR BÔNUS</a></div>
-        </div>
-      </div>
+      <h2>Bônus <span class="hl">inclusos</span></h2>
+      <ul class="bonus">
+        <li><span>Bônus 01</span><h3>Coletânea de Videoclipes Raiz</h3><p>Videoclipes em MP4 dos maiores nomes do modão.</p></li>
+        <li><span>Bônus 02</span><h3>Modões Atualizados 2026</h3><p>As regravações e lançamentos mais recentes do gênero.</p></li>
+        <li><span>Bônus 03</span><h3>Tutorial de Como Passar pro Pendrive</h3><p>Passo a passo simples em vídeo, sem complicação.</p></li>
+      </ul>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section class="insta">
     <div class="wrap">
-      <p class="notice">📌 <strong>Não precisa esperar o e-mail.</strong> Seu acesso está aqui nesta página. Tire um print ou salve nos favoritos pra não perder.</p>
+      <h2>Siga a gente no <span class="hl">Instagram</span></h2>
+      <p>Novidades, lançamentos e muito modão todo dia.</p>
+      <a class="btn" href="https://www.instagram.com/asmaisouvidasbrasil/" target="_blank" rel="noopener">@asmaisouvidasbrasil</a>
     </div>
   </section>
 
-  <section id="ajuda" class="help">
+  <section id="ajuda" class="alt">
     <div class="wrap">
       <h2>Ficou com alguma <span class="hl">dúvida?</span></h2>
-      <p>É só chamar a gente no WhatsApp que respondemos rapidinho. E lembre: você tem 7 dias de garantia. Se não gostar, devolvemos 100% do seu dinheiro.</p>
-      <a class="btn btn-wpp" href="https://wa.me/558897245311?text=Ol%C3%A1!%20Comprei%20a%20cole%C3%A7%C3%A3o%20e%20preciso%20de%20ajuda" target="_blank" rel="noopener">CHAMAR NO WHATSAPP</a>
-
       <div class="faq">
-        <div class="item"><button class="q" aria-expanded="false">A pasta não abre, o que eu faço?<span>+</span></button><p class="a">Confira se você está com internet e tente abrir de novo. Se continuar, chame no WhatsApp que a gente resolve.</p></div>
+        <div class="item"><button class="q" aria-expanded="false">A pasta não abre, o que eu faço?<span>+</span></button><p class="a">Confira se você está com internet e tente de novo. Se continuar, chame no WhatsApp que a gente resolve.</p></div>
         <div class="item"><button class="q" aria-expanded="false">Como baixo a música no celular?<span>+</span></button><p class="a">Abra a pasta, toque nos três pontinhos ao lado da música e escolha Fazer download.</p></div>
-        <div class="item"><button class="q" aria-expanded="false">Como passo as músicas pro pendrive?<span>+</span></button><p class="a">Abra o Bônus 03, o Tutorial de Como Passar pro Pendrive. Ele mostra o passo a passo.</p></div>
         <div class="item"><button class="q" aria-expanded="false">Posso acessar de novo depois?<span>+</span></button><p class="a">Pode sim. O acesso é vitalício. Guarde esta página nos favoritos.</p></div>
+        <div class="item"><button class="q" aria-expanded="false">E se eu não gostar?<span>+</span></button><p class="a">Você tem 7 dias de garantia. Devolvemos 100% do seu dinheiro.</p></div>
       </div>
     </div>
   </section>
@@ -158,79 +156,90 @@ footer a{color:var(--gold)}
   </div>
 </footer>
 
-<script>
-/* ===== COLE OS LINKS REAIS AQUI (troque "#" pelo link de cada pasta) ===== */
-var PASTAS = [
-  { nome: "Amado Batista - Parte 01", link: "#" },
-  { nome: "Amado Batista - Parte 02", link: "#" },
-  { nome: "Cascatinha e Inhana", link: "#" },
-  { nome: "Chico Rey e Paraná", link: "#" },
-  { nome: "Chitãozinho & Xororó - Parte 01", link: "#" },
-  { nome: "Chitãozinho & Xororó - Parte 02", link: "#" },
-  { nome: "Daniel - Parte 01", link: "#" },
-  { nome: "Daniel - Parte 02", link: "#" },
-  { nome: "Di Paullo e Paulino", link: "#" },
-  { nome: "Eduardo Costa - Parte 01", link: "#" },
-  { nome: "Eduardo Costa - Parte 02", link: "#" },
-  { nome: "Gian e Giovani", link: "#" },
-  { nome: "Gino e Geno", link: "#" },
-  { nome: "Irmãs Galvão", link: "#" },
-  { nome: "João Mineiro e Marciano", link: "#" },
-  { nome: "Leandro & Leonardo", link: "#" },
-  { nome: "Leonardo - Parte 01", link: "#" },
-  { nome: "Leonardo - Parte 02", link: "#" },
-  { nome: "Liu e Léu", link: "#" },
-  { nome: "Locutores & Versos", link: "#" },
-  { nome: "Milionário & José Rico", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 1", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 2", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 3", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 4", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 5", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 6", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 7", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 8", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 9", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 10", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 11", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 12", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 13", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 14", link: "#" },
-  { nome: "Moda de Viola Sertanejo Raiz - Vol. 15", link: "#" },
-  { nome: "Modão de Buteco", link: "#" },
-  { nome: "Modão Selec 2026", link: "#" },
-  { nome: "Modão Sertanejo Maio 2026", link: "#" },
-  { nome: "Os Filhos de Goiás", link: "#" },
-  { nome: "Pedro Bento e Zé da Estrada", link: "#" },
-  { nome: "Renan e Ray", link: "#" },
-  { nome: "Rick & Renner - Parte 01", link: "#" },
-  { nome: "Rick & Renner - Parte 02", link: "#" },
-  { nome: "Rionegro e Solimões", link: "#" },
-  { nome: "Rodeios", link: "#" },
-  { nome: "Teixeirinha", link: "#" },
-  { nome: "Teodoro & Sampaio", link: "#" },
-  { nome: "Tião Carreiro e Pardinho", link: "#" },
-  { nome: "Tonico & Tinoco", link: "#" },
-  { nome: "Trio Parada Dura", link: "#" },
-  { nome: "Vieira e Vieirinha", link: "#" },
-  { nome: "Zé Carreiro e Carreirinho", link: "#" },
-  { nome: "Zezé Di Camargo e Luciano", link: "#" }
-];
+<a class="wpp-float" href="https://wa.me/5588997245311?text=Ol%C3%A1!%20Comprei%20a%20cole%C3%A7%C3%A3o%20e%20preciso%20de%20ajuda" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3A12.93 12.93 0 0 0 5 22.67L3.22 29l6.48-1.7A12.98 12.98 0 1 0 16.04 3Zm0 23.76a10.8 10.8 0 0 1-5.5-1.5l-.39-.23-3.84 1.01 1.03-3.74-.25-.39a10.8 10.8 0 1 1 8.950 4.85Zm5.92-8.08c-.32-.16-1.920-.95-2.22-1.06-.3-.11-.51-.16-.73.16-.21.33-.84 1.06-1.03 1.28-.19.22-.38.25-.7.08-.33-.16-1.37-.5-2.61-1.61a9.77 9.77 0 0 1-1.81-2.25c-.19-.32-.02-.5.14-.66.15-.14.33-.38.49-.57.16-.19.21-.33.32-.54.11-.22.06-.41-.02-.57-.09-.16-.73-1.76-1-2.410-.26-.63-.53-.55-.73-.56h-.62c-.22 0-.57.08-.87.4-.3.33-1.14 1.12-1.14 2.72s1.17 3.15 1.33 3.37c.16.21 2.3 3.51 5.570 4.92.78.34 1.39.54 1.86.69.78.25 1.49.21 2.05.13.63-.09 1.92-.79 2.19-1.55.27-.76.27-1.41.19-1.55-.08-.13-.3-.21-.62-.37Z"/></svg></a>
 
+<script>
+var D="https://drive.google.com/drive/folders/";
+var PASTAS=[
+["Amado Batista - Parte 01","1EAJB6DGy9ZydaijRISqDFBjqrCeLLdJr"],
+["Amado Batista - Parte 02","1-RJzIm3_e-b1LIPq9quvXUDvjCvZj8F-"],
+["Cascatinha e Inhana","1KJzF0Iuhkb8m6ahCcVHoiSp2IkZlMqLe"],
+["Chico Rey e Paraná","17GBge24qkIYvd3CnAT9RF6ivIcjoyjjJ"],
+["Chitãozinho & Xororó - Parte 01","1H8_8PGVHSkHqNQb83_7fOvskGmn7K62r"],
+["Chitãozinho & Xororó - Parte 02","1CCt-A4ZwODQTX7ZGqLpKqw1xhSkeGtgk"],
+["Daniel - Parte 01","1rXpROfs4ZtaHwtrQSk4oobfuy127A1xo"],
+["Daniel - Parte 02","191OZ0aZOR8tNEMVH64xQRAcOsveNp2Kb"],
+["Di Paullo e Paulino","1q1eBbT6GyMzcEVxq6XEOqCqp36OcFzvw"],
+["Eduardo Costa - Parte 01","1DGThXojMOnGDdRYUoGG3fqDmbWI1nGUp"],
+["Eduardo Costa - Parte 02","1sT0eqad_uRHOYoCfkDmWrrWUPW6Zywqt"],
+["Gian e Giovani","1CQT0BKSC00XKKUlLhp7-eQsNwFWN4Qmp"],
+["Gino e Geno","1SpiC5PiBDeSyToL-fMp0iOhhycL-es_i"],
+["Irmãs Galvão","1ByPe9mvGmw_aZA5EZEl4-aubFORwwPO4"],
+["João Mineiro e Marciano","1o6UwpZXeKEXS-SYHncf1RobdEjeb1yAx"],
+["Leandro & Leonardo","1iMgvaEs63UxoRxTks8ohPYdpMDZQgFSU"],
+["Leonardo - Parte 01","1StZw5cC2yEfBzTCDT5fVnCiQzqWAZ_vU"],
+["Leonardo - Parte 02","120EIrJdSszkSga1-l6NkrbwRVYKwHoiL"],
+["Liu e Léu","1KeajR9E71Id6zo6sisZAlY3ydLumOYhl"],
+["Locutores & Versos","1_bOKuf9qfvfw9CtRKuRyo2Supyndftw0"],
+["Milionário & José Rico","17l2xDqPLQuEFWgzpqJc7s4Yj3QWxctOL"],
+["Moda de Viola Sertanejo Raiz - Vol. 1","1L7OJCMPlUtBiKhgB60nss1dRnE3rJQe8"],
+["Moda de Viola Sertanejo Raiz - Vol. 2","1eolP2FiLNgRipMZtkmVEQRx8BEC6v7xm"],
+["Moda de Viola Sertanejo Raiz - Vol. 3","1koMiNG5htxVJFgqfISBW0QMaKYk8OAId"],
+["Moda de Viola Sertanejo Raiz - Vol. 4","1uu28cPQwWnylhV72mvjJKZySUpZ5hsMf"],
+["Moda de Viola Sertanejo Raiz - Vol. 5","1tqrSU-mqJgcQcaye4jOipWgK957Dt_PS"],
+["Moda de Viola Sertanejo Raiz - Vol. 6","118vqUFfrXAdIYOlX33EXgfthT8HjEaxm"],
+["Moda de Viola Sertanejo Raiz - Vol. 7","1-oYmyMJqs5rPdXetKp78fD_Drlz0B8lc"],
+["Moda de Viola Sertanejo Raiz - Vol. 8","1cPUIidaRtGi6X6anW4JtujG8k_KBTZDZ"],
+["Moda de Viola Sertanejo Raiz - Vol. 9","1CY-sPnF9RI4CFYVEAvkOGq3FMI7eydeg"],
+["Moda de Viola Sertanejo Raiz - Vol. 10","1wROIfmYZD8fmBE2TSMl7FU7uYQmvts8D"],
+["Moda de Viola Sertanejo Raiz - Vol. 11","1_dJ6CF4Egxe-dkeXhJbIO7DlMOfg8TVg"],
+["Moda de Viola Sertanejo Raiz - Vol. 12","1CDCxalSe2NL92Y5yQWQiJBFtKg4Lwkq0"],
+["Moda de Viola Sertanejo Raiz - Vol. 13","1daozEemRas0dODX5D_Yh-jEyM7ZAUESE"],
+["Moda de Viola Sertanejo Raiz - Vol. 14","1V63hYCEGvaOkue3kDOMEUbTH8NfTGZsW"],
+["Moda de Viola Sertanejo Raiz - Vol. 15","1c5qmnZwVD6Y9C9vhDzm-gLSVaIeoRkUU"],
+["Modão de Buteco","1q7vuPd1dIChHAN1l1ORCB28vuIIuFemx"],
+["Modão Selec 2026","1WKn9BrSp0mLpSwo0_bDGe1vk_s-ccYhM"],
+["Modão Sertanejo Maio 2026","1NdZQnDLqB-yLi1setnOJi87VRP5UWeud"],
+["Os Filhos de Goiás","12-mbYsuwBpkVD9F7Oa58d9xmYjwAV6iw"],
+["Pedro Bento e Zé da Estrada","1QQmUYRbv2qqTsBpmIzB7fGjG6oWjtlbQ"],
+["Renan e Ray","1nz91h3-OOoKydm0l0T3eXLqjAAoNli8Q"],
+["Rick & Renner - Parte 01","1_hHpLMIp9fv11VFOgU6WFQ75TZhUZ5-o"],
+["Rick & Renner - Parte 02","1ayzCno4RWSj3A1X60GKPgCpyxfCBkVz2"],
+["Rionegro e Solimões","1-GgIBJDjIPpIeOoX3Ok7sQU0cJ5ANjy7"],
+["Rodeios","1IcezY3vieoxK9OVhTSBRkTO4UE6OilKr"],
+["Teixeirinha","1JhgVVvl2sN1uBMnVY_PudXufZlVCpdTh"],
+["Teodoro & Sampaio","1Av1DRTSaHsjQYpfIbGhIjUTFIlnZ-8Vu"],
+["Tião Carreiro e Pardinho","19Xfp13T1sdPcsRe2-cpEd3So09-XmWDA"],
+["Tonico & Tinoco","1nWFYkBQuG35R9YRUiGOjDPGftaUz0_Yo"],
+["Trio Parada Dura","1NZkEhJv9AY_37agXEiDXx2ZZ2AnIL7uK"],
+["Vieira e Vieirinha","1pZ71rMRkWgUUSlD2yW1o0kl6f1t3PMLF"],
+["Zé Carreiro e Carreirinho","1sGL0YqJobp0httR6BT18y2TDsTaV7YuH"],
+["Zezé Di Camargo e Luciano","16Iht1rmvXxzn5q9sktLbOFs3epLhXvtC"]
+];
 (function(){
-  var ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFD500" d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg>';
+  var LIMITE=10,aberto=false;
+  var PLAY='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M7 4.5v15l13-7.5z"/></svg>';
   function norm(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
   function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-  var lista=document.getElementById('lista'),vazio=document.getElementById('vazio'),busca=document.getElementById('busca');
+  var lista=document.getElementById('lista'),vazio=document.getElementById('vazio'),busca=document.getElementById('busca'),mais=document.getElementById('mais');
   lista.innerHTML=PASTAS.map(function(p){
-    return '<li class="folder" data-n="'+esc(norm(p.nome))+'"><div class="fname">'+ICON+'<span>'+esc(p.nome)+'</span></div><a class="btn" href="'+esc(p.link)+'" target="_blank" rel="noopener">ABRIR PASTA</a></li>';
+    return '<li class="folder" data-n="'+esc(norm(p[0]))+'"><span class="fname">'+esc(p[0])+'</span><a class="play" href="'+D+p[1]+'" target="_blank" rel="noopener" aria-label="Ouvir '+esc(p[0])+'">'+PLAY+'</a></li>';
   }).join('');
   var itens=lista.children;
-  busca.addEventListener('input',function(){
+  function render(){
     var q=norm(busca.value.trim()),n=0;
-    for(var i=0;i<itens.length;i++){var ok=!q||itens[i].getAttribute('data-n').indexOf(q)>-1;itens[i].style.display=ok?'':'none';if(ok)n++;}
+    for(var i=0;i<itens.length;i++){
+      var ok=!q||itens[i].getAttribute('data-n').indexOf(q)>-1;
+      if(ok)n++;
+      itens[i].classList.toggle('hide',!ok||(!q&&!aberto&&n>LIMITE));
+    }
     vazio.style.display=n?'none':'block';
-  });
+    mais.style.display=(q||itens.length<=LIMITE)?'none':'block';
+    mais.textContent=aberto?'Mostrar menos':'Mostrar mais...';
+  }
+  busca.addEventListener('input',render);
+  mais.addEventListener('click',function(){aberto=!aberto;render();});
+  render();
   document.querySelectorAll('.q').forEach(function(b){
     b.addEventListener('click',function(){
       var it=b.parentNode,open=it.classList.toggle('open');
